@@ -6,15 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="krhbvfkwrb"
+        android:background="@color/whiteDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_6mdp"
+            android:layout_weight="1"
+            android:fontFamily="@font/opensanssemibold"
+            android:text="To-do Planner"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18font_mdp" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAllNotes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
         app:layout_constraintVertical_bias="0.5" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -23,10 +46,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_19mdp"
         android:layout_marginBottom="@dimen/_19mdp"
-        android:backgroundTint="@color/whitePrimary"
+        android:backgroundTint="@color/whiteDark"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/ic_baseline_add_24"
         app:borderWidth="0dp"
-        android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="@dimen/_28mdp" />

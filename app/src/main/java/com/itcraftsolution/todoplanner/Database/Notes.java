@@ -18,17 +18,13 @@ public class Notes {
     @ColumnInfo(name = "Date")
     private String notesDate;
 
-    @ColumnInfo(name = "Priority")
-    private String notesPriority;
-
     @ColumnInfo(name = "Pin")
     private boolean pin;
 
-    public Notes( String notesTitle, String notes, String notesDate, String notesPriority, boolean pin) {
+    public Notes( String notesTitle, String notes, String notesDate, boolean pin) {
         this.notesTitle = notesTitle;
         this.notes = notes;
         this.notesDate = notesDate;
-        this.notesPriority = notesPriority;
         this.pin = pin;
     }
 
@@ -62,14 +58,6 @@ public class Notes {
 
     public void setNotesDate(String notesDate) {
         this.notesDate = notesDate;
-    }
-
-    public String getNotesPriority() {
-        return notesPriority;
-    }
-
-    public void setNotesPriority(String notesPriority) {
-        this.notesPriority = notesPriority;
     }
 
     public boolean isPin() {
