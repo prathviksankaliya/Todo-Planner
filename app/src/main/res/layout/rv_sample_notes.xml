@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/_3mdp"
+    app:cardCornerRadius="@dimen/_20mdp"
+    android:elevation="@dimen/_3mdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8mdp"
+        >
+
+        <TextView
+            android:id="@+id/txTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensanssemibold"
+            android:text="Education App Features"
+            android:textSize="@dimen/_15font_mdp"
+            android:textStyle="bold"
+            android:maxLines="3"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8mdp"
+            android:fontFamily="@font/opensansregular"
+            android:text="hello my name is sankaliya prathvik i am rekqhbfkhvefhvefkhvef hehbf jhvefe hvefjvcently graducated from suratra university rajot"
+            android:textSize="@dimen/_11font_mdp"
+            android:maxLines="10"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txTitle" />
+
+        <TextView
+            android:id="@+id/txDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="22-10-2002"
+            android:textSize="@dimen/_10font_mdp"
+            android:fontFamily="@font/opensansbold"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_6mdp"
+            android:layout_marginEnd="@dimen/_6mdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txNotes" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
