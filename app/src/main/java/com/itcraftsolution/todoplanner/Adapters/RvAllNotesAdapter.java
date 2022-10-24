@@ -78,34 +78,34 @@ public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.vi
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.BottomSheetStyle);
-                View sheetView = LayoutInflater.from(context).inflate(R.layout.custom_delete_box, view.findViewById(R.id.bottomsheet));
-                bottomSheetDialog.setContentView(sheetView);
-                bottomSheetDialog.show();
-                Button canclebtn, deletebtn;
-                canclebtn = sheetView.findViewById(R.id.btnCancle);
-                deletebtn = sheetView.findViewById(R.id.btnDelete);
-
-                deletebtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        NotesViewModel notesViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(NotesViewModel.class);
-                        notesViewModel.deleteNotes(notes.getId());
-                        list.remove(holder.getAdapterPosition());
-                        notifyDataSetChanged();
-                        bottomSheetDialog.dismiss();
-                        Snackbar.make(holder.binding.cardviewLayout, "Note Deleted Successfully!!", Snackbar.LENGTH_SHORT)
-                                .setBackgroundTint(context.getResources().getColor(R.color.red))
-                                .setTextColor(context.getResources().getColor(R.color.white))
-                                .show();
-                    }
-                });
-                canclebtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        bottomSheetDialog.dismiss();
-                    }
-                });
+//                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.BottomSheetStyle);
+//                View sheetView = LayoutInflater.from(context).inflate(R.layout.custom_delete_box, view.findViewById(R.id.bottomsheet));
+//                bottomSheetDialog.setContentView(sheetView);
+//                bottomSheetDialog.show();
+//                Button canclebtn, deletebtn;
+//                canclebtn = sheetView.findViewById(R.id.btnCancle);
+//                deletebtn = sheetView.findViewById(R.id.btnDelete);
+//
+//                deletebtn.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        NotesViewModel notesViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(NotesViewModel.class);
+//                        notesViewModel.deleteNotes(notes.getId());
+//                        list.remove(holder.getAdapterPosition());
+//                        notifyDataSetChanged();
+//                        bottomSheetDialog.dismiss();
+//                        Snackbar.make(holder.binding.cardviewLayout, "Note Deleted Successfully!!", Snackbar.LENGTH_SHORT)
+//                                .setBackgroundTint(context.getResources().getColor(R.color.red))
+//                                .setTextColor(context.getResources().getColor(R.color.white))
+//                                .show();
+//                    }
+//                });
+//                canclebtn.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        bottomSheetDialog.dismiss();
+//                    }
+//                });
 
                 return true;
             }

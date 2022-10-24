@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.SearchView;
 
+import com.google.android.material.transition.MaterialElevationScale;
 import com.itcraftsolution.todoplanner.Adapters.RvAllNotesAdapter;
 import com.itcraftsolution.todoplanner.Database.Notes;
 import com.itcraftsolution.todoplanner.ViewModel.NotesViewModel;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.materialToolbar);
+//        setSupportActionBar(binding.materialToolbar);
         list = new ArrayList<>();
         filterNotes = new ArrayList<>();
         notesViewModel = new ViewModelProvider(this).get(NotesViewModel.class);

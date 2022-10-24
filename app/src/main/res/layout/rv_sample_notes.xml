@@ -6,6 +6,9 @@
     android:id="@+id/cardviewLayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="@dimen/_3mdp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?attr/selectableItemBackground"
     app:cardCornerRadius="@dimen/_20mdp"
     android:elevation="@dimen/_8mdp">
 
@@ -24,6 +27,8 @@
             android:textSize="@dimen/_15font_mdp"
             android:textStyle="bold"
             android:maxLines="3"
+            android:ellipsize="end"
+            android:textAlignment="textStart"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -35,6 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_8mdp"
+            android:ellipsize="end"
+            android:textAlignment="textStart"
             android:fontFamily="@font/opensansregular"
             android:text="hello my name is sankaliya prathvik i am rekqhbfkhvefhvefkhvef hehbf jhvefe hvefjvcently graducated from suratra university rajot"
             android:textSize="@dimen/_11font_mdp"
