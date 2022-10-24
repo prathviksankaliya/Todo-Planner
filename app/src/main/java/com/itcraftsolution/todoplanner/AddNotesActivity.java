@@ -24,15 +24,17 @@ public class AddNotesActivity extends AppCompatActivity {
 
     private ActivityAddNotesBinding binding;
     private NotesViewModel notesViewModel;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityAddNotesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.edNotes.requestFocus();
 
         notesViewModel = new ViewModelProvider(this).get(NotesViewModel.class);
+
+        updateNotes();
 
         binding.igBackToHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,14 +60,39 @@ public class AddNotesActivity extends AppCompatActivity {
                             .show();
                     binding.edNotes.requestFocus();
                 }else {
-                    String date = new SimpleDateFormat("dd MM yyyy", Locale.getDefault()).format(new Date());
+                    String date = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(new Date());
                     Notes notes = new Notes(binding.edTitle.getText().toString(), binding.edNotes.getText().toString(),date, false);
-                    notesViewModel.addNotes(notes);
-                    Toast.makeText(AddNotesActivity.this, "Saved!!", Toast.LENGTH_SHORT).show();
+                    if(binding.btnAddNoteSave.getText().toString().equals("Save"))
+                    {
+                        notesViewModel.addNotes(notes);
+                        Toast.makeText(AddNotesActivity.this, "Notes Saved!!", Toast.LENGTH_SHORT).show();
+                    }else if(binding.btnAddNoteSave.getText().toString().equals("Update"))
+                    {
+                        Notes updateNotes = new Notes(id,binding.edTitle.getText().toString(), binding.edNotes.getText().toString(),date, false);
+                        notesViewModel.updateNotes(updateNotes);
+                        Toast.makeText(AddNotesActivity.this, "Notes Updated!!", Toast.LENGTH_SHORT).show();
+                    }
                     finish();
                 }
             }
         });
+    }
+
+    private void updateNotes()
+    {
+        if(getIntent().getBooleanExtra("update", false))
+        {
+            String notes,title;
+            notes = getIntent().getStringExtra("notes");
+            id = getIntent().getIntExtra("id",0);
+            title = getIntent().getStringExtra("title");
+            binding.edNotes.setText(notes);
+            binding.edTitle.setText(title);
+            binding.btnAddNoteSave.setText("Update");
+
+        }else{
+            binding.edNotes.requestFocus();
+        }
     }
 
 

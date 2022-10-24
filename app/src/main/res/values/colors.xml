@@ -11,6 +11,7 @@
 
     <color name="whitePrimary">#eeeeee</color>
     <color name="whiteDark">#9e9e9e</color>
+    <color name="whiteDark2">#B29E9E9E</color>
     <color name="red">#ff1744</color>
     <color name="green">#66bb6a</color>
     <color name="yellow">#d4e157</color>

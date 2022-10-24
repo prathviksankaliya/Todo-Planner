@@ -28,6 +28,17 @@ public class Notes {
         this.pin = pin;
     }
 
+    public Notes(int id, String notesTitle, String notes, String notesDate, boolean pin) {
+        this.id = id;
+        this.notesTitle = notesTitle;
+        this.notes = notes;
+        this.notesDate = notesDate;
+        this.pin = pin;
+    }
+
+    public Notes() {
+    }
+
     public int getId() {
         return id;
     }
