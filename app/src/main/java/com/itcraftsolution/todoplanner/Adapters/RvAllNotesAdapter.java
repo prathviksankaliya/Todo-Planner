@@ -2,25 +2,16 @@ package com.itcraftsolution.todoplanner.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.snackbar.Snackbar;
 import com.itcraftsolution.todoplanner.AddNotesActivity;
-import com.itcraftsolution.todoplanner.Database.Notes;
+import com.itcraftsolution.todoplanner.model.Notes;
 import com.itcraftsolution.todoplanner.R;
-import com.itcraftsolution.todoplanner.ViewModel.NotesViewModel;
 import com.itcraftsolution.todoplanner.databinding.RvSampleNotesBinding;
 
 import java.util.ArrayList;

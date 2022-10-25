@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainLayout"
@@ -7,139 +7,121 @@
     android:layout_height="match_parent"
     tools:context=".AddNotesActivity">
 
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:clipToPadding="false"-->
+<!--        android:paddingBottom="@dimen/_10mdp">-->
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/igBackToHome"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:padding="@dimen/_5mdp"
-            android:src="@drawable/ic_baseline_keyboard_backspace_24" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/materialTextView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_5mdp"
-            android:layout_weight="3"
-            android:background="@drawable/date_rounded"
-            android:ellipsize="end"
-            android:fontFamily="@font/opensanssemibold"
-            android:gravity="center"
-            android:padding="@dimen/_5mdp"
-            android:text="Edited on"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_12font_mdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-        <TextView
-            android:id="@+id/btnAddNoteSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_6mdp"
-            android:layout_weight="1"
-            android:fontFamily="@font/opensansbold"
-            android:gravity="end"
-            android:padding="@dimen/_6mdp"
-            android:text="Save"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_15font_mdp" />
-    </LinearLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_5mdp"
-        android:maxLines="2"
-        app:boxStrokeWidth="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edTitle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:fontFamily="@font/opensansbold"
-            android:hint="Title"
-            android:maxLines="2"
-            android:textSize="@dimen/_18font_mdp"
-            android:textStyle="bold" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:boxStrokeWidth="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edNotes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:focusable="true"
-            android:focusedByDefault="true"
-            android:fontFamily="@font/opensanssemibold"
-            android:hint="Note"
-            android:textSize="@dimen/_14font_mdp" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <ImageView
+                android:id="@+id/igBackToHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6mdp"
+                android:layout_marginTop="@dimen/_6mdp"
+                android:layout_weight="1"
+                android:padding="@dimen/_5mdp"
+                android:src="@drawable/ic_baseline_keyboard_backspace_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabColorPicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_12mdp"
-        android:backgroundTint="@color/purple"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_baseline_color_lens_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txEditDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5mdp"
+                android:layout_weight="3"
+                android:background="@drawable/date_rounded"
+                android:drawableStart="@drawable/ic_baseline_date_range_24"
+                android:drawablePadding="@dimen/_5mdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/opensanssemibold"
+                android:gravity="center"
+                android:padding="@dimen/_6mdp"
+                android:text="oct 24, 2022"
+                android:textAlignment="center"
+                android:textSize="@dimen/_12font_mdp"
+                app:layout_constraintBottom_toBottomOf="@+id/igBackToHome"
+                app:layout_constraintEnd_toStartOf="@+id/btnAddNoteSave"
+                app:layout_constraintStart_toEndOf="@+id/igBackToHome"
+                app:layout_constraintTop_toTopOf="@+id/igBackToHome" />
 
-    <LinearLayout
-        android:id="@+id/bottomBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="@dimen/_5mdp"
-        android:gravity="center"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent">
+            <TextView
+                android:id="@+id/btnAddNoteSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_6mdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/opensansbold"
+                android:gravity="end"
+                android:padding="@dimen/_6mdp"
+                android:text="Save"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15font_mdp"
+                app:layout_constraintBottom_toBottomOf="@+id/txEditDate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txEditDate" />
 
-        <com.yahiaangelo.markdownedittext.MarkdownStylesBar
-            android:id="@+id/styleBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="@dimen/_5mdp"
-            android:padding="@dimen/_3mdp"
-            />
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6mdp"
+                android:maxLines="2"
+                app:boxStrokeWidth="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txEditDate">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/opensansbold"
+                    android:hint="Title"
+                    android:maxLines="2"
+                    android:textSize="@dimen/_18font_mdp"
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout2"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:boxStrokeWidth="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="true"
+                    android:gravity="start"
+                    android:focusedByDefault="true"
+                    android:fontFamily="@font/opensanssemibold"
+                    android:hint="Note"
+                    android:textSize="@dimen/_14font_mdp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    </ScrollView>-->
+
+    <include
+        android:id="@+id/bottomSheetColor"
+        layout="@layout/custom_delete_box"
+        />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 <!--<androidx.appcompat.widget.Toolbar
         android:id="@+id/tlAddNotes"

@@ -5,7 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.itcraftsolution.todoplanner.Database.Notes;
+import com.itcraftsolution.todoplanner.model.Notes;
 import com.itcraftsolution.todoplanner.Repository.NotesRepository;
 
 import java.util.List;

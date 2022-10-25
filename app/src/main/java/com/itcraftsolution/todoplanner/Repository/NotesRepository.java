@@ -4,8 +4,8 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.itcraftsolution.todoplanner.Database.DatabaseHelper;
-import com.itcraftsolution.todoplanner.Database.Notes;
+import com.itcraftsolution.todoplanner.database.DatabaseHelper;
+import com.itcraftsolution.todoplanner.model.Notes;
 
 import java.util.List;
 

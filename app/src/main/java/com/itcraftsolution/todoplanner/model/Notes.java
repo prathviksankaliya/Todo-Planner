@@ -1,4 +1,4 @@
-package com.itcraftsolution.todoplanner.Database;
+package com.itcraftsolution.todoplanner.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -21,19 +21,27 @@ public class Notes {
     @ColumnInfo(name = "Pin")
     private boolean pin;
 
-    public Notes( String notesTitle, String notes, String notesDate, boolean pin) {
+    @ColumnInfo(name = "Colors")
+    private String color;
+
+//    @ColumnInfo(name = "imagePaths")
+//    private String image_path;
+
+    public Notes( String notesTitle, String notes, String notesDate, boolean pin, String color) {
         this.notesTitle = notesTitle;
         this.notes = notes;
         this.notesDate = notesDate;
         this.pin = pin;
+        this.color = color;
     }
 
-    public Notes(int id, String notesTitle, String notes, String notesDate, boolean pin) {
+    public Notes(int id, String notesTitle, String notes, String notesDate, boolean pin, String color) {
         this.id = id;
         this.notesTitle = notesTitle;
         this.notes = notes;
         this.notesDate = notesDate;
         this.pin = pin;
+        this.color = color;
     }
 
     public Notes() {
@@ -77,5 +85,13 @@ public class Notes {
 
     public void setPin(boolean pin) {
         this.pin = pin;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

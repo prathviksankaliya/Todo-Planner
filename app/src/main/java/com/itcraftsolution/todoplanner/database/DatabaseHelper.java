@@ -1,10 +1,12 @@
-package com.itcraftsolution.todoplanner.Database;
+package com.itcraftsolution.todoplanner.database;
 
 import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+
+import com.itcraftsolution.todoplanner.model.Notes;
 
 @Database(entities = {Notes.class}, version = 1, exportSchema = false)
 public abstract class DatabaseHelper extends RoomDatabase {

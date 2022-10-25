@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,9 +13,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.SearchView;
 
-import com.google.android.material.transition.MaterialElevationScale;
 import com.itcraftsolution.todoplanner.Adapters.RvAllNotesAdapter;
-import com.itcraftsolution.todoplanner.Database.Notes;
+import com.itcraftsolution.todoplanner.model.Notes;
 import com.itcraftsolution.todoplanner.ViewModel.NotesViewModel;
 import com.itcraftsolution.todoplanner.databinding.ActivityMainBinding;
 
@@ -45,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         fetchAllNotes();
 
-        binding.fabAdd.setOnClickListener(new View.OnClickListener() {
+        binding.fabAddNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, AddNotesActivity.class));

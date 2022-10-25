@@ -62,9 +62,6 @@ dependencies {
     //Dynamic Sizes
     implementation 'com.github.MrNouri:DynamicSizes:1.0'
 
-    //Color Picker Library
-    implementation 'com.thebluealliance:spectrum:0.7.1'
-
-    //Edittext Style
-    implementation 'io.github.yahiaangelo.markdownedittext:markdownedittext:1.1.3'
+//    //Color Picker Library
+//    implementation 'com.thebluealliance:spectrum:0.7.1'
 }

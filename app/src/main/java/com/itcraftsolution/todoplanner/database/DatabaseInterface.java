@@ -1,4 +1,4 @@
-package com.itcraftsolution.todoplanner.Database;
+package com.itcraftsolution.todoplanner.database;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -6,12 +6,14 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.itcraftsolution.todoplanner.model.Notes;
+
 import java.util.List;
 
 @Dao
 public interface DatabaseInterface {
 
-    @Query("select * from tbl_Notes")
+    @Query("select * from tbl_Notes Order by id desc")
     LiveData<List<Notes>> getAllLiveNotes();
 
     @Insert
