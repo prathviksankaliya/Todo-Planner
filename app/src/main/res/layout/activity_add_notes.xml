@@ -82,9 +82,10 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/opensansbold"
                     android:hint="Title"
+                    android:background="@color/white"
                     android:maxLines="2"
                     android:textSize="@dimen/_18font_mdp"
                     android:textStyle="bold" />
@@ -94,9 +95,8 @@
                 android:id="@+id/textInputLayout2"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 app:boxStrokeWidth="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
@@ -104,9 +104,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edNotes"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:focusable="true"
-                    android:gravity="start"
+                    android:background="@color/white"
                     android:focusedByDefault="true"
                     android:fontFamily="@font/opensanssemibold"
                     android:hint="Note"
@@ -119,7 +119,7 @@
 
     <include
         android:id="@+id/bottomSheetColor"
-        layout="@layout/custom_delete_box"
+        layout="@layout/note_choose_color"
         />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

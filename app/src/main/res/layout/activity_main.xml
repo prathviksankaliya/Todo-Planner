@@ -16,6 +16,7 @@
         android:text="To-Do Notes"
         android:textSize="@dimen/_22font_mdp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

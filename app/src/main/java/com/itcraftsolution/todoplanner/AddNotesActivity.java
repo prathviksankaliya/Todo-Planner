@@ -9,6 +9,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -82,13 +83,16 @@ public class AddNotesActivity extends AppCompatActivity {
     {
         if(getIntent().getBooleanExtra("update", false))
         {
+
             String notes,title;
             notes = getIntent().getStringExtra("notes");
             id = getIntent().getIntExtra("id",0);
             title = getIntent().getStringExtra("title");
+            selectedNoteColor = getIntent().getStringExtra("color");
             binding.edNotes.setText(notes);
             binding.edTitle.setText(title);
             binding.btnAddNoteSave.setText("Update");
+            getColorIdUsingColorName(selectedNoteColor);
 
         }else{
             binding.edNotes.requestFocus();
@@ -180,10 +184,39 @@ public class AddNotesActivity extends AppCompatActivity {
         binding.bottomSheetColor.igColor7.setImageResource(igColor7);
         setNoteBackground();
     }
+    private void getColorIdUsingColorName(String colorName)
+    {
+        if(colorName.equals("#9387F5"))
+        {
+            setViewBackground(colorName, 0, R.drawable.ic_baseline_check_24, 0, 0, 0, 0, 0);
+        }else if(colorName.equals("#A8DAF0"))
+        {
+            setViewBackground(colorName, 0, 0, R.drawable.ic_baseline_check_24, 0, 0, 0, 0);
+        }else if(colorName.equals("#D4C4E3"))
+        {
+            setViewBackground("#D4C4E3", 0, 0, 0, R.drawable.ic_baseline_check_24, 0, 0, 0);
+
+        }else if(colorName.equals("#F0C390"))
+        {
+            setViewBackground("#F0C390", 0, 0, 0, 0, R.drawable.ic_baseline_check_24, 0, 0);
+
+        }else if(colorName.equals("#C3F09C"))
+        {
+            setViewBackground("#C3F09C", 0, 0, 0, 0, 0, R.drawable.ic_baseline_check_24, 0);
+
+        }else if(colorName.equals("#8690B1"))
+        {
+            setViewBackground("#8690B1", 0, 0, 0, 0, 0, 0, R.drawable.ic_baseline_check_24);
+        }else{
+            setViewBackground(colorName, R.drawable.ic_baseline_check_24, 0, 0, 0, 0, 0, 0);
+        }
+    }
 
     private void setNoteBackground()
     {
         binding.mainLayout.setBackgroundColor(Color.parseColor(selectedNoteColor));
+        binding.edTitle.setBackgroundColor(Color.parseColor(selectedNoteColor));
+        binding.edNotes.setBackgroundColor(Color.parseColor(selectedNoteColor));
 
     }
 }
