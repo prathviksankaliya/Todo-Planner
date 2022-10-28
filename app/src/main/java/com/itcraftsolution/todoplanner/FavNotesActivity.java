@@ -52,8 +52,16 @@ public class FavNotesActivity extends AppCompatActivity {
         notesViewModel.getAllFavNotes().observe(this, new Observer<List<Notes>>() {
             @Override
             public void onChanged(List<Notes> notes) {
-                favNotes = notes;
-                adapter.updateNotesList(notes);
+                if(notes.isEmpty())
+                {
+                    binding.notFoundLayout.setVisibility(View.VISIBLE);
+                    binding.rvFavNotes.setVisibility(View.GONE);
+                }else{
+                    binding.notFoundLayout.setVisibility(View.GONE);
+                    binding.rvFavNotes.setVisibility(View.VISIBLE);
+                    favNotes = notes;
+                    adapter.updateNotesList(notes);
+                }
             }
         });
     }

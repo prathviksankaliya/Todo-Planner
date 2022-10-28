@@ -96,7 +96,6 @@ public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.vi
                 igShare = menuSheetView.findViewById(R.id.btnShare);
 
                 boolean getFav = notesViewModel.getFavNotes(notes.getId());
-                Toast.makeText(context, ""+getFav, Toast.LENGTH_SHORT).show();
                 if(getFav)
                 {
                     igFav.setImageResource(R.drawable.fillstar64);

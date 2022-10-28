@@ -31,21 +31,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
-    <EditText
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/edSearchNotes"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginHorizontal="@dimen/_12mdp"
         android:layout_marginTop="@dimen/_12mdp"
         android:background="@drawable/search_bg"
-        android:drawableStart="@drawable/ic_baseline_search_24"
-        android:drawablePadding="@dimen/_10mdp"
-        android:hint="Search any words..."
+        app:queryHint="Search any words..."
+        app:queryBackground="@null"
+        app:iconifiedByDefault="false"
         android:includeFontPadding="false"
-        android:importantForAutofill="no"
-        android:inputType="textFilter"
-        android:imeOptions="actionDone"
-        android:paddingStart="@dimen/_10mdp"
         android:textSize="@dimen/_15font_mdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -85,9 +81,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_6mdp"
-            android:textSize="@dimen/_14font_mdp"
-            android:fontFamily="@font/opensansregular"
-            android:text="No found Any Notes.."
+            android:textSize="@dimen/_15font_mdp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/opensanssemibold"
+            android:text="Not found Any Notes..."
             />
     </LinearLayout>
 

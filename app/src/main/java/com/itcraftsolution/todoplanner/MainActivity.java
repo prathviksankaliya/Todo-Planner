@@ -1,6 +1,7 @@
 package com.itcraftsolution.todoplanner;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -15,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.itcraftsolution.todoplanner.Adapters.RvAllNotesAdapter;
@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private RvAllNotesAdapter adapter;
     private NotesViewModel notesViewModel;
     private List<Notes> list, searchList;
-    private Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +42,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         list = new ArrayList<>();
-
 
         notesViewModel = new ViewModelProvider(this).get(NotesViewModel.class);
 
@@ -54,26 +51,20 @@ public class MainActivity extends AppCompatActivity {
         binding.rvAllNotes.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         binding.rvAllNotes.setAdapter(adapter);
 
-        binding.edSearchNotes.addTextChangedListener(new TextWatcher() {
+        binding.edSearchNotes.clearFocus();
+        binding.edSearchNotes.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+            public boolean onQueryTextSubmit(String query) {
+                return false;
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-               cancelTimer();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if(list.size() != 0)
-                {
-                    Toast.makeText(MainActivity.this, ""+editable.toString(), Toast.LENGTH_SHORT).show();
-                    searchNotes(editable.toString());
-                }
+            public boolean onQueryTextChange(String newText) {
+                searchNotes(newText);
+                return true;
             }
         });
+
         binding.fabAddNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,8 +85,17 @@ public class MainActivity extends AppCompatActivity {
         notesViewModel.getAllNotes().observe(this, new Observer<List<Notes>>() {
             @Override
             public void onChanged(List<Notes> notes) {
-                list = notes;
-                adapter.updateNotesList(notes);
+                if(notes.isEmpty())
+                {
+                    binding.rvAllNotes.setVisibility(View.GONE);
+                    binding.notFoundLayout.setVisibility(View.VISIBLE);
+                }else{
+                    binding.rvAllNotes.setVisibility(View.VISIBLE);
+                    binding.notFoundLayout.setVisibility(View.GONE);
+                    list = notes;
+                    adapter.updateNotesList(notes);
+                }
+
             }
         });
 
@@ -108,43 +108,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void searchNotes(String searchKey)
     {
-        searchList = new ArrayList<>(list);
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                if(searchKey.trim().isEmpty())
-                {
-
-                    list = searchList;
-                }else{
-                    ArrayList<Notes> tempList = new ArrayList<>();
-                    for(Notes notes : searchList)
-                    {
-                        if(notes.getNotesTitle().toLowerCase().contains(searchKey.toLowerCase()) ||
-                                notes.getNotes().toLowerCase().contains(searchKey.toLowerCase()))
-                        {
-                            tempList.add(notes);
-                        }
-                    }
-                    list = tempList;
-                }
-                new Handler(Looper.getMainLooper()).post(new Runnable() {
-                    @Override
-                    public void run() {
-                        adapter.updateNotesList(list);
-                    }
-                });
-            }
-        }, 200);
-
-    }
-
-    public void cancelTimer()
-    {
-        if(timer != null)
+        searchList = new ArrayList<>();
+        for(Notes notes : list)
         {
-            timer.cancel();
+            if(notes.getNotesTitle().toLowerCase().contains(searchKey) || notes.getNotes().toLowerCase().contains(searchKey))
+            {
+                searchList.add(notes);
+            }
+        }
+        if(searchList.isEmpty())
+        {
+            binding.notFoundLayout.setVisibility(View.VISIBLE);
+            binding.rvAllNotes.setVisibility(View.GONE);
+        }else{
+            adapter.updateNotesList(searchList);
+            binding.rvAllNotes.setVisibility(View.VISIBLE);
+            binding.notFoundLayout.setVisibility(View.GONE);
         }
     }
 }

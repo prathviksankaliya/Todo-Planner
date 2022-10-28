@@ -26,14 +26,14 @@
     <color name="card_blue">#5AC8FA</color>
     <color name="color_misc">#1F1F1F</color>
 
-    <color name="default_note">#fff</color>
-    <color name="noteColor1">#9387F5</color>
-    <color name="noteColor2">#A8DAF0</color>
-    <color name="noteColor3">#D4C4E3</color>
-    <color name="noteColor4">#F0C390</color>
-    <color name="noteColor5">#C3F09C</color>
-    <color name="noteColor6">#8690B1</color>
-    <color name="noteColor7">#F9844A</color>
+    <color name="default_note">#f5f5f5</color>
+    <color name="noteColor1">#c5cae9</color>
+    <color name="noteColor2">#ffcdd2</color>
+    <color name="noteColor3">#e1bee7</color>
+    <color name="noteColor4">#bbdefb</color>
+    <color name="noteColor5">#c8e6c9</color>
+    <color name="noteColor6">#ffecb3</color>
+    <color name="noteColor7">#ffccbc</color>
     <color name="noteColor8">#34C759</color>
     <color name="noteColor9">#E9018786</color>
 </resources>
