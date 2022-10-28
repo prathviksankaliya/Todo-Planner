@@ -14,14 +14,25 @@
         android:layout_marginTop="@dimen/_10mdp"
         android:fontFamily="@font/opensansbold"
         android:text="To-Do Notes"
+        android:textColor="@color/black"
         android:textSize="@dimen/_22font_mdp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/btnHomeFav"
+        android:layout_width="@dimen/_32mdp"
+        android:layout_height="@dimen/_30mdp"
+        android:layout_marginBottom="7dp"
+        android:src="@drawable/favnotes641"
+        android:layout_marginEnd="@dimen/_12mdp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/edSearchNotes"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginHorizontal="@dimen/_12mdp"
@@ -30,8 +41,10 @@
         android:drawableStart="@drawable/ic_baseline_search_24"
         android:drawablePadding="@dimen/_10mdp"
         android:hint="Search any words..."
+        android:includeFontPadding="false"
         android:importantForAutofill="no"
         android:inputType="textFilter"
+        android:imeOptions="actionDone"
         android:paddingStart="@dimen/_10mdp"
         android:textSize="@dimen/_15font_mdp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/edSearchNotes" />
 
     <LinearLayout
         android:id="@+id/notFoundLayout"
@@ -62,7 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText">
+        app:layout_constraintTop_toBottomOf="@+id/edSearchNotes">
 
         <ImageView
             android:layout_width="wrap_content"

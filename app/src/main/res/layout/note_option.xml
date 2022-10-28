@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/bottomSheetMenu"
     android:background="@drawable/deletesheet_box"
     android:padding="@dimen/_6mdp">
 
@@ -31,5 +33,116 @@
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
 
+    <ImageView
+        android:id="@+id/btnEdit"
+        android:layout_width="@dimen/_42mdp"
+        android:layout_height="@dimen/_42mdp"
+        android:layout_marginHorizontal="@dimen/_12mdp"
+        android:layout_marginVertical="@dimen/_10mdp"
+        android:background="@drawable/search_bg"
+        android:padding="@dimen/_10mdp"
+        android:src="@drawable/ic_baseline_edit_24"
+        app:layout_constraintEnd_toStartOf="@+id/btnMenuDelete"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_6mdp"
+        android:fontFamily="@font/opensanssemibold"
+        android:text="Edit"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12font_mdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnEdit"
+        app:layout_constraintStart_toStartOf="@+id/btnEdit"
+        app:layout_constraintTop_toBottomOf="@+id/btnEdit" />
+
+    <ImageView
+        android:id="@+id/btnMenuDelete"
+        android:layout_width="@dimen/_42mdp"
+        android:layout_height="@dimen/_42mdp"
+        android:layout_marginHorizontal="@dimen/_12mdp"
+        android:layout_marginVertical="@dimen/_10mdp"
+        android:background="@drawable/search_bg"
+        android:padding="@dimen/_10mdp"
+        android:src="@drawable/ic_baseline_delete_24"
+        app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
+        app:layout_constraintEnd_toStartOf="@+id/btnFav"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnEdit"
+        app:layout_constraintTop_toTopOf="@+id/btnEdit" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_6mdp"
+        android:fontFamily="@font/opensanssemibold"
+        android:text="Share"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12font_mdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnShare"
+        app:layout_constraintStart_toStartOf="@+id/btnShare"
+        app:layout_constraintTop_toBottomOf="@+id/btnShare" />
+
+    <ImageView
+        android:id="@+id/btnFav"
+        android:layout_width="@dimen/_42mdp"
+        android:layout_height="@dimen/_42mdp"
+        android:layout_marginHorizontal="@dimen/_12mdp"
+        android:layout_marginVertical="@dimen/_10mdp"
+        android:background="@drawable/search_bg"
+        android:padding="@dimen/_10mdp"
+        android:src="@drawable/emptystar64"
+        app:layout_constraintBottom_toBottomOf="@+id/btnMenuDelete"
+        app:layout_constraintEnd_toStartOf="@+id/btnShare"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnMenuDelete"
+        app:layout_constraintTop_toTopOf="@+id/btnMenuDelete" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_6mdp"
+        android:fontFamily="@font/opensanssemibold"
+        android:text="Favourite"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12font_mdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnFav"
+        app:layout_constraintStart_toStartOf="@+id/btnFav"
+        app:layout_constraintTop_toBottomOf="@+id/btnFav" />
+    <ImageView
+        android:id="@+id/btnShare"
+        android:layout_width="@dimen/_42mdp"
+        android:layout_height="@dimen/_42mdp"
+        android:layout_marginHorizontal="@dimen/_12mdp"
+        android:layout_marginVertical="@dimen/_10mdp"
+        android:background="@drawable/search_bg"
+        android:padding="@dimen/_10mdp"
+        android:src="@drawable/ic_baseline_share_24"
+        app:layout_constraintBottom_toBottomOf="@+id/btnFav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnFav"
+        app:layout_constraintTop_toTopOf="@+id/btnFav" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_6mdp"
+        android:fontFamily="@font/opensanssemibold"
+        android:text="Delete"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12font_mdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnMenuDelete"
+        app:layout_constraintStart_toStartOf="@+id/btnMenuDelete"
+        app:layout_constraintTop_toBottomOf="@+id/btnMenuDelete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

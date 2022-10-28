@@ -3,10 +3,14 @@ package com.itcraftsolution.todoplanner.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
@@ -23,23 +27,24 @@ import com.itcraftsolution.todoplanner.databinding.RvSampleNotesBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.viewHolder> {
 
     Context context;
     List<Notes> list,allNotes;
+    NotesViewModel notesViewModel;
+    Timer timer;
 
     public RvAllNotesAdapter(Context context, List<Notes> list) {
         this.context = context;
         this.list = list;
         allNotes = new ArrayList<>(list);
+        notesViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(NotesViewModel.class);
+
     }
 
-    public void searchNotes(List<Notes> filterNotes)
-    {
-        this.list = filterNotes;
-        notifyDataSetChanged();
-    }
     public void updateNotesList(List<Notes> notes)
     {
             list = notes;
@@ -71,39 +76,113 @@ public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.vi
                 intent.putExtra("title", notes.getNotesTitle());
                 intent.putExtra("color", notes.getColor());
                 intent.putExtra("id", notes.getId());
+                intent.putExtra("pin", notes.isPin());
                 context.startActivity(intent);
-
             }
         });
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.BottomSheetStyle);
-                View sheetView = LayoutInflater.from(context).inflate(R.layout.delete_box, view.findViewById(R.id.bottomsheet));
-                bottomSheetDialog.setContentView(sheetView);
-                bottomSheetDialog.show();
-                Button canclebtn, deletebtn;
-                canclebtn = sheetView.findViewById(R.id.btnCancle);
-                deletebtn = sheetView.findViewById(R.id.btnDelete);
 
-                deletebtn.setOnClickListener(new View.OnClickListener() {
+                BottomSheetDialog menuBottomSheetDialog = new BottomSheetDialog(context, R.style.BottomSheetStyle);
+                View menuSheetView = LayoutInflater.from(context).inflate(R.layout.note_option, view.findViewById(R.id.bottomSheetMenu));
+                menuBottomSheetDialog.setContentView(menuSheetView);
+                menuBottomSheetDialog.show();
+                ImageView igEdit, igDelete, igFav, igShare;
+
+                igEdit = menuSheetView.findViewById(R.id.btnEdit);
+                igDelete = menuSheetView.findViewById(R.id.btnMenuDelete);
+                igFav = menuSheetView.findViewById(R.id.btnFav);
+                igShare = menuSheetView.findViewById(R.id.btnShare);
+
+                boolean getFav = notesViewModel.getFavNotes(notes.getId());
+                Toast.makeText(context, ""+getFav, Toast.LENGTH_SHORT).show();
+                if(getFav)
+                {
+                    igFav.setImageResource(R.drawable.fillstar64);
+                }
+
+                igEdit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        NotesViewModel notesViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(NotesViewModel.class);
-                        notesViewModel.deleteNotes(notes.getId());
-                        list.remove(holder.getAdapterPosition());
-                        notifyDataSetChanged();
-                        bottomSheetDialog.dismiss();
-                        Snackbar.make(holder.binding.cardviewLayout, "Note Deleted Successfully!!", Snackbar.LENGTH_SHORT)
-                                .setBackgroundTint(context.getResources().getColor(R.color.red))
-                                .setTextColor(context.getResources().getColor(R.color.white))
-                                .show();
+                        Intent intent = new Intent(context, AddNotesActivity.class);
+                        intent.putExtra("update", true);
+                        intent.putExtra("notes", notes.getNotes());
+                        intent.putExtra("title", notes.getNotesTitle());
+                        intent.putExtra("color", notes.getColor());
+                        intent.putExtra("id", notes.getId());
+                        context.startActivity(intent);
+                        menuBottomSheetDialog.dismiss();
                     }
                 });
-                canclebtn.setOnClickListener(new View.OnClickListener() {
+
+                igDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        bottomSheetDialog.dismiss();
+                        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.BottomSheetStyle);
+                        View sheetView = LayoutInflater.from(context).inflate(R.layout.delete_box, view.findViewById(R.id.bottomsheet));
+                        bottomSheetDialog.setContentView(sheetView);
+                        bottomSheetDialog.show();
+                        Button canclebtn, deletebtn;
+                        canclebtn = sheetView.findViewById(R.id.btnCancle);
+                        deletebtn = sheetView.findViewById(R.id.btnDelete);
+
+                        deletebtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                NotesViewModel notesViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(NotesViewModel.class);
+                                notesViewModel.deleteNotes(notes.getId());
+                                list.remove(holder.getAdapterPosition());
+                                notifyDataSetChanged();
+                                bottomSheetDialog.dismiss();
+                                Snackbar.make(holder.binding.cardviewLayout, "Note Deleted Successfully!!", Snackbar.LENGTH_SHORT)
+                                        .setBackgroundTint(context.getResources().getColor(R.color.red))
+                                        .setTextColor(context.getResources().getColor(R.color.white))
+                                        .show();
+                            }
+                        });
+                        canclebtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                bottomSheetDialog.dismiss();
+                            }
+                        });
+                        menuBottomSheetDialog.dismiss();
+                    }
+                });
+
+                igFav.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(getFav)
+                        {
+                            igFav.setImageResource(R.drawable.emptystar64);
+                            notesViewModel.favNotes(notes.getId(), false);
+                            Snackbar.make(holder.binding.cardviewLayout, "Removed From Favourite", Snackbar.LENGTH_SHORT)
+                                    .setBackgroundTint(context.getResources().getColor(R.color.red))
+                                    .setTextColor(context.getResources().getColor(R.color.white))
+                                    .show();
+                        }else{
+                            notesViewModel.favNotes(notes.getId(), true);
+                            Snackbar.make(holder.binding.cardviewLayout, "Added into Favourite", Snackbar.LENGTH_SHORT)
+                                    .setBackgroundTint(context.getResources().getColor(R.color.noteColor8))
+                                    .setTextColor(context.getResources().getColor(R.color.white))
+                                    .show();
+                        }
+
+                        menuBottomSheetDialog.dismiss();
+                    }
+                });
+
+                igShare.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_SUBJECT, notes.getNotesTitle());
+                    intent.putExtra(Intent.EXTRA_TEXT, notes.getNotes());
+                    context.startActivity(Intent.createChooser(intent, "Share Notes!!"));
+                    menuBottomSheetDialog.dismiss();
                     }
                 });
 
@@ -125,5 +204,45 @@ public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.vi
             super(itemView);
             binding = RvSampleNotesBinding.bind(itemView);
         }
+    }
+
+    public void searchNotes(String searchKey)
+    {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                if(searchKey.trim().isEmpty())
+                {
+                    list = allNotes;
+                }else{
+                    ArrayList<Notes> tempList = new ArrayList<>();
+                    for(Notes notes : allNotes)
+                    {
+                        if(notes.getNotesTitle().toLowerCase().contains(searchKey.toLowerCase()) ||
+                                notes.getNotes().toLowerCase().contains(searchKey.toLowerCase()))
+                        {
+                            tempList.add(notes);
+                        }
+                    }
+                    list = tempList;
+                }
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        updateNotesList(list);
+                    }
+                });
+            }
+        }, 500);
+
+    }
+
+    public void cancelTimer()
+    {
+            if(timer != null)
+            {
+                timer.cancel();
+            }
     }
 }

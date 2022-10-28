@@ -22,6 +22,16 @@ public class NotesRepository {
         return databaseHelper.databaseInterface().getAllLiveNotes();
     }
 
+    public LiveData<List<Notes>> getAllFavNotes()
+    {
+        return databaseHelper.databaseInterface().getAllFavNotes();
+    }
+
+    public boolean getFavNotes(int id)
+    {
+        return databaseHelper.databaseInterface().getFavNotes(id);
+    }
+
     public void addNotes(Notes notes)
     {
         databaseHelper.databaseInterface().addNotes(notes);
@@ -35,5 +45,10 @@ public class NotesRepository {
     public void updateNotes(Notes notes)
     {
         databaseHelper.databaseInterface().updateNotes(notes);
+    }
+
+    public void favNotes(int id, boolean pin)
+    {
+        databaseHelper.databaseInterface().favNotes(id, pin);
     }
 }

@@ -28,6 +28,7 @@ public class AddNotesActivity extends AppCompatActivity {
     private NotesViewModel notesViewModel;
     private int id;
     private String selectedNoteColor;
+    private boolean pin = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,12 @@ public class AddNotesActivity extends AppCompatActivity {
         chooseColor();
         setNoteBackground();
 
+        binding.igBackToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         binding.btnAddNoteSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,14 +69,14 @@ public class AddNotesActivity extends AppCompatActivity {
                     binding.edNotes.requestFocus();
                 }else {
 
-                    Notes notes = new Notes(binding.edTitle.getText().toString(), binding.edNotes.getText().toString(),date, false, selectedNoteColor);
+                    Notes notes = new Notes(binding.edTitle.getText().toString(), binding.edNotes.getText().toString(),date, pin, selectedNoteColor);
                     if(binding.btnAddNoteSave.getText().toString().equals("Save"))
                     {
                         notesViewModel.addNotes(notes);
                         Toast.makeText(AddNotesActivity.this, "Notes Saved!!", Toast.LENGTH_SHORT).show();
                     }else if(binding.btnAddNoteSave.getText().toString().equals("Update"))
                     {
-                        Notes updateNotes = new Notes(id,binding.edTitle.getText().toString(), binding.edNotes.getText().toString(),date, false, selectedNoteColor);
+                        Notes updateNotes = new Notes(id,binding.edTitle.getText().toString(), binding.edNotes.getText().toString(),date, pin, selectedNoteColor);
                         notesViewModel.updateNotes(updateNotes);
                         Toast.makeText(AddNotesActivity.this, "Notes Updated!!", Toast.LENGTH_SHORT).show();
                     }
@@ -88,6 +95,8 @@ public class AddNotesActivity extends AppCompatActivity {
             notes = getIntent().getStringExtra("notes");
             id = getIntent().getIntExtra("id",0);
             title = getIntent().getStringExtra("title");
+            pin = getIntent().getBooleanExtra("pin", false);
+
             selectedNoteColor = getIntent().getStringExtra("color");
             binding.edNotes.setText(notes);
             binding.edTitle.setText(title);

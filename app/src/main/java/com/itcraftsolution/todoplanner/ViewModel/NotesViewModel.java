@@ -23,6 +23,14 @@ public class NotesViewModel extends AndroidViewModel {
     {
         return notesRepository.getAllNotes();
     }
+    public LiveData<List<Notes>> getAllFavNotes()
+    {
+        return notesRepository.getAllFavNotes();
+    }
+    public boolean getFavNotes(int id)
+    {
+        return notesRepository.getFavNotes(id);
+    }
 
     public void addNotes(Notes notes)
     {
@@ -37,5 +45,10 @@ public class NotesViewModel extends AndroidViewModel {
     public void updateNotes(Notes notes)
     {
         notesRepository.updateNotes(notes);
+    }
+
+    public void favNotes(int id, boolean pin)
+    {
+        notesRepository.favNotes(id, pin);
     }
 }

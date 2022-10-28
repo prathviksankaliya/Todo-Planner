@@ -16,7 +16,7 @@
         >
         <shape android:shape="oval">
             <stroke android:width="@dimen/_6mdp"
-                android:color="@color/color_misc"/>
+                android:color="@color/searchBg"/>
         </shape>
     </item>
 

@@ -13,7 +13,7 @@ import java.util.List;
 @Dao
 public interface DatabaseInterface {
 
-    @Query("select * from tbl_Notes Order by id desc")
+    @Query("select * from tbl_Notes where pin=0 Order by id desc")
     LiveData<List<Notes>> getAllLiveNotes();
 
     @Insert
@@ -24,4 +24,14 @@ public interface DatabaseInterface {
 
     @Update
     void updateNotes(Notes notes);
+
+    @Query("Update tbl_Notes set pin=:pin where id=:id")
+    void favNotes(int id, boolean pin);
+
+    @Query("Select pin from tbl_Notes where id=:id")
+    boolean getFavNotes(int id);
+
+    @Query("select * from tbl_Notes where pin=1 Order by id desc")
+    LiveData<List<Notes>> getAllFavNotes();
+
 }
