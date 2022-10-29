@@ -1,6 +1,7 @@
 package com.itcraftsolution.todoplanner.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -226,6 +227,19 @@ public class AddNotesActivity extends AppCompatActivity {
         if(selectedNoteColor.equals("#00000000"))
         {
             selectedNoteColor = "#f5f5f5";
+//
+//            Toast.makeText(this, "color chages", Toast.LENGTH_SHORT).show();
+//            binding.edNotes.setTextColor(getResources().getColor(R.color.default_note));
+//            binding.edTitle.setTextColor(getResources().getColor(R.color.default_note));
+//            binding.txEditDate.setTextColor(getResources().getColor(R.color.default_note));
+//            binding.btnAddNoteSave.setTextColor(getResources().getColor(R.color.default_note));
+        }else {
+//            binding.edNotes.setTextColor(getResources().getColor(R.color.white));
+//            binding.edTitle.setTextColor(getResources().getColor(R.color.white));
+//            binding.txEditDate.setTextColor(getResources().getColor(R.color.white));
+//            binding.edTitle.setHintTextColor(getResources().getColor(R.color.white));
+//            binding.edNotes.setHintTextColor(getResources().getColor(R.color.white));
+//            binding.btnAddNoteSave.setTextColor(getResources().getColor(R.color.white));
         }
 
     }
