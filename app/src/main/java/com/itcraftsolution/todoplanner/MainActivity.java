@@ -109,9 +109,10 @@ public class MainActivity extends AppCompatActivity {
     public void searchNotes(String searchKey)
     {
         searchList = new ArrayList<>();
+        searchKey = searchKey.toLowerCase().trim();
         for(Notes notes : list)
         {
-            if(notes.getNotesTitle().toLowerCase().contains(searchKey) || notes.getNotes().toLowerCase().contains(searchKey))
+            if(notes.getNotesTitle().toLowerCase().trim().contains(searchKey) || notes.getNotes().toLowerCase().trim().contains(searchKey))
             {
                 searchList.add(notes);
             }

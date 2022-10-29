@@ -38,7 +38,7 @@
         android:layout_marginHorizontal="@dimen/_12mdp"
         android:layout_marginTop="@dimen/_12mdp"
         android:background="@drawable/search_bg"
-        app:queryHint="Search any words..."
+        app:queryHint="Search Notes"
         app:queryBackground="@null"
         app:iconifiedByDefault="false"
         android:includeFontPadding="false"

@@ -69,14 +69,14 @@ public class AddNotesActivity extends AppCompatActivity {
                     binding.edNotes.requestFocus();
                 }else {
 
-                    Notes notes = new Notes(binding.edTitle.getText().toString(), binding.edNotes.getText().toString(),date, pin, selectedNoteColor);
+                    Notes notes = new Notes(binding.edTitle.getText().toString().trim(), binding.edNotes.getText().toString().trim(),date, pin, selectedNoteColor);
                     if(binding.btnAddNoteSave.getText().toString().equals("Save"))
                     {
                         notesViewModel.addNotes(notes);
                         Toast.makeText(AddNotesActivity.this, "Notes Saved!!", Toast.LENGTH_SHORT).show();
                     }else if(binding.btnAddNoteSave.getText().toString().equals("Update"))
                     {
-                        Notes updateNotes = new Notes(id,binding.edTitle.getText().toString(), binding.edNotes.getText().toString(),date, pin, selectedNoteColor);
+                        Notes updateNotes = new Notes(id,binding.edTitle.getText().toString().trim(), binding.edNotes.getText().toString().trim(),date, pin, selectedNoteColor);
                         notesViewModel.updateNotes(updateNotes);
                         Toast.makeText(AddNotesActivity.this, "Notes Updated!!", Toast.LENGTH_SHORT).show();
                     }
