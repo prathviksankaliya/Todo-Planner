@@ -42,7 +42,6 @@ public class AddNotesActivity extends AppCompatActivity {
         selectedNoteColor = "#f5f5f5";
         updateNotes();
         chooseColor();
-        setNoteBackground();
 
         binding.igBackToHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +66,6 @@ public class AddNotesActivity extends AppCompatActivity {
                             .show();
                     binding.edNotes.requestFocus();
                 }else {
-
                     Notes notes = new Notes(binding.edTitle.getText().toString().trim(), binding.edNotes.getText().toString().trim(),date, pin, selectedNoteColor);
                     if(binding.btnAddNoteSave.getText().toString().equals("Save"))
                     {
@@ -136,46 +134,46 @@ public class AddNotesActivity extends AppCompatActivity {
             }
         });
 
-        binding.bottomSheetColor.viewColor1.setOnClickListener(new View.OnClickListener() {
+        binding.bottomSheetColor.igNone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               setViewBackground("#f5f5f5", R.drawable.ic_baseline_check_24, 0, 0, 0, 0, 0, 0);
+                setViewBackground("#00000000", R.drawable.ic_baseline_block_24, 0, 0, 0, 0, 0, 0);
             }
         });
         binding.bottomSheetColor.viewColor2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               setViewBackground("#c5cae9", 0, R.drawable.ic_baseline_check_24, 0, 0, 0, 0, 0);
+               setViewBackground("#c5cae9", R.drawable.ic_baseline_block_24, R.drawable.ic_baseline_check_24, 0, 0, 0, 0, 0);
             }
         });
         binding.bottomSheetColor.viewColor3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               setViewBackground("#ffcdd2", 0, 0, R.drawable.ic_baseline_check_24, 0, 0, 0, 0);
+               setViewBackground("#ffcdd2", R.drawable.ic_baseline_block_24, 0, R.drawable.ic_baseline_check_24, 0, 0, 0, 0);
             }
         });
         binding.bottomSheetColor.viewColor4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               setViewBackground("#e1bee7", 0, 0, 0, R.drawable.ic_baseline_check_24, 0, 0, 0);
+               setViewBackground("#e1bee7", R.drawable.ic_baseline_block_24, 0, 0, R.drawable.ic_baseline_check_24, 0, 0, 0);
             }
         });
         binding.bottomSheetColor.viewColor5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               setViewBackground("#bbdefb", 0, 0, 0, 0, R.drawable.ic_baseline_check_24, 0, 0);
+               setViewBackground("#bbdefb", R.drawable.ic_baseline_block_24, 0, 0, 0, R.drawable.ic_baseline_check_24, 0, 0);
             }
         });
         binding.bottomSheetColor.viewColor6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setViewBackground("#c8e6c9", 0, 0, 0, 0, 0, R.drawable.ic_baseline_check_24, 0);
+                setViewBackground("#c8e6c9", R.drawable.ic_baseline_block_24, 0, 0, 0, 0, R.drawable.ic_baseline_check_24, 0);
             }
         });
         binding.bottomSheetColor.viewColor7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setViewBackground("#ffecb3", 0, 0, 0, 0, 0, 0, R.drawable.ic_baseline_check_24);
+                setViewBackground("#ffecb3", R.drawable.ic_baseline_block_24, 0, 0, 0, 0, 0, R.drawable.ic_baseline_check_24);
             }
         });
 
@@ -183,7 +181,7 @@ public class AddNotesActivity extends AppCompatActivity {
     private void setViewBackground(String color, int igColor1, int igColor2, int igColor3,int igColor4,int igColor5,int igColor6, int igColor7)
     {
         selectedNoteColor = color;
-        binding.bottomSheetColor.igColor1.setImageResource(igColor1);
+        binding.bottomSheetColor.igNone.setImageResource(igColor1);
         binding.bottomSheetColor.igColor2.setImageResource(igColor2);
         binding.bottomSheetColor.igColor3.setImageResource(igColor3);
         binding.bottomSheetColor.igColor4.setImageResource(igColor4);
@@ -196,27 +194,27 @@ public class AddNotesActivity extends AppCompatActivity {
     {
         if(colorName.equals("#c5cae9"))
         {
-            setViewBackground(colorName, 0, R.drawable.ic_baseline_check_24, 0, 0, 0, 0, 0);
+            setViewBackground(colorName, R.drawable.ic_baseline_block_24, R.drawable.ic_baseline_check_24, 0, 0, 0, 0, 0);
         }else if(colorName.equals("#ffcdd2"))
         {
-            setViewBackground(colorName, 0, 0, R.drawable.ic_baseline_check_24, 0, 0, 0, 0);
+            setViewBackground(colorName, R.drawable.ic_baseline_block_24, 0, R.drawable.ic_baseline_check_24, 0, 0, 0, 0);
         }else if(colorName.equals("#e1bee7"))
         {
-            setViewBackground(colorName, 0, 0, 0, R.drawable.ic_baseline_check_24, 0, 0, 0);
+            setViewBackground(colorName, R.drawable.ic_baseline_block_24, 0, 0, R.drawable.ic_baseline_check_24, 0, 0, 0);
 
         }else if(colorName.equals("#bbdefb"))
         {
-            setViewBackground(colorName, 0, 0, 0, 0, R.drawable.ic_baseline_check_24, 0, 0);
+            setViewBackground(colorName, R.drawable.ic_baseline_block_24, 0, 0, 0, R.drawable.ic_baseline_check_24, 0, 0);
 
         }else if(colorName.equals("#c8e6c9"))
         {
-            setViewBackground(colorName, 0, 0, 0, 0, 0, R.drawable.ic_baseline_check_24, 0);
+            setViewBackground(colorName, R.drawable.ic_baseline_block_24, 0, 0, 0, 0, R.drawable.ic_baseline_check_24, 0);
 
         }else if(colorName.equals("#ffecb3"))
         {
-            setViewBackground(colorName, 0, 0, 0, 0, 0, 0, R.drawable.ic_baseline_check_24);
-        }else{
-            setViewBackground(colorName, R.drawable.ic_baseline_check_24, 0, 0, 0, 0, 0, 0);
+            setViewBackground(colorName, R.drawable.ic_baseline_block_24, 0, 0, 0, 0, 0, R.drawable.ic_baseline_check_24);
+        }else if(colorName.equals("#f5f5f5")){
+            setViewBackground("#00000000", R.drawable.ic_baseline_block_24, 0, 0, 0, 0, 0, 0);
         }
     }
 
@@ -225,6 +223,10 @@ public class AddNotesActivity extends AppCompatActivity {
         binding.mainLayout.setBackgroundColor(Color.parseColor(selectedNoteColor));
         binding.edTitle.setBackgroundColor(Color.parseColor(selectedNoteColor));
         binding.edNotes.setBackgroundColor(Color.parseColor(selectedNoteColor));
+        if(selectedNoteColor.equals("#00000000"))
+        {
+            selectedNoteColor = "#f5f5f5";
+        }
 
     }
 }

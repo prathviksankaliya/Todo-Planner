@@ -133,7 +133,7 @@ public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.vi
                                 list.remove(holder.getAdapterPosition());
                                 notifyDataSetChanged();
                                 bottomSheetDialog.dismiss();
-                                Snackbar.make(holder.binding.cardviewLayout, "Note Deleted Successfully!!", Snackbar.LENGTH_SHORT)
+                            Snackbar.make(holder.binding.cardviewLayout, "Deleted Successfully!!", Snackbar.LENGTH_SHORT)
                                         .setBackgroundTint(context.getResources().getColor(R.color.red))
                                         .setTextColor(context.getResources().getColor(R.color.white))
                                         .show();
@@ -204,42 +204,4 @@ public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.vi
         }
     }
 
-    public void searchNotes(String searchKey)
-    {
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                if(searchKey.trim().isEmpty())
-                {
-                    list = allNotes;
-                }else{
-                    ArrayList<Notes> tempList = new ArrayList<>();
-                    for(Notes notes : allNotes)
-                    {
-                        if(notes.getNotesTitle().toLowerCase().trim().contains(searchKey) || notes.getNotes().toLowerCase().trim().contains(searchKey))
-                        {
-                            tempList.add(notes);
-                        }
-                    }
-                    list = tempList;
-                }
-                new Handler(Looper.getMainLooper()).post(new Runnable() {
-                    @Override
-                    public void run() {
-                        updateNotesList(list);
-                    }
-                });
-            }
-        }, 200);
-
-    }
-
-    public void cancelTimer()
-    {
-            if(timer != null)
-            {
-                timer.cancel();
-            }
-    }
 }

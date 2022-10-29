@@ -29,7 +29,7 @@
         android:layout_marginTop="@dimen/_8mdp"
         android:fontFamily="@font/opensanssemibold"
         android:text="Choose Note Color"
-        android:textColor="@color/black"
+        android:textColor="@color/textColor"
         android:textSize="@dimen/_16font_mdp"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
@@ -51,18 +51,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-            <View
-                android:id="@+id/viewColor1"
-                android:layout_width="@dimen/_32mdp"
-                android:layout_height="@dimen/_32mdp"
-                android:background="@drawable/bg_note_color_1" />
-
             <ImageView
-                android:id="@+id/igColor1"
+                android:id="@+id/igNone"
                 android:layout_width="@dimen/_32mdp"
                 android:layout_height="@dimen/_32mdp"
-                android:padding="@dimen/_8mdp"
-                android:src="@drawable/ic_baseline_check_24" />
+                android:padding="@dimen/_3mdp"
+                android:background="@drawable/date_rounded"
+                android:src="@drawable/ic_baseline_block_24"/>
         </FrameLayout>
 
         <FrameLayout

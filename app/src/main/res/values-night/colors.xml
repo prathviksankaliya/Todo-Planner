@@ -27,7 +27,7 @@
     <color name="color_misc">#1F1F1F</color>
     <color name="textColor">@color/white</color>
 
-    <color name="default_note">#f5f5f5</color>
+    <color name="default_note">#fff</color>
     <color name="noteColor1">#c5cae9</color>
     <color name="noteColor2">#ffcdd2</color>
     <color name="noteColor3">#e1bee7</color>
