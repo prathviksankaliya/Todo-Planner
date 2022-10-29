@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
@@ -19,11 +18,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.snackbar.Snackbar;
-import com.itcraftsolution.todoplanner.AddNotesActivity;
+import com.itcraftsolution.todoplanner.Activities.AddNotesActivity;
 import com.itcraftsolution.todoplanner.ViewModel.NotesViewModel;
+import com.itcraftsolution.todoplanner.databinding.RvSampleNotesBinding;
 import com.itcraftsolution.todoplanner.model.Notes;
 import com.itcraftsolution.todoplanner.R;
-import com.itcraftsolution.todoplanner.databinding.RvSampleNotesBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -218,8 +217,7 @@ public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.vi
                     ArrayList<Notes> tempList = new ArrayList<>();
                     for(Notes notes : allNotes)
                     {
-                        if(notes.getNotesTitle().toLowerCase().contains(searchKey.toLowerCase()) ||
-                                notes.getNotes().toLowerCase().contains(searchKey.toLowerCase()))
+                        if(notes.getNotesTitle().toLowerCase().trim().contains(searchKey) || notes.getNotes().toLowerCase().trim().contains(searchKey))
                         {
                             tempList.add(notes);
                         }
@@ -233,7 +231,7 @@ public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.vi
                     }
                 });
             }
-        }, 500);
+        }, 200);
 
     }
 

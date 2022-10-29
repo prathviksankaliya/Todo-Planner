@@ -1,19 +1,18 @@
-package com.itcraftsolution.todoplanner;
+package com.itcraftsolution.todoplanner.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.snackbar.Snackbar;
+import com.itcraftsolution.todoplanner.R;
 import com.itcraftsolution.todoplanner.model.Notes;
 import com.itcraftsolution.todoplanner.ViewModel.NotesViewModel;
 import com.itcraftsolution.todoplanner.databinding.ActivityAddNotesBinding;

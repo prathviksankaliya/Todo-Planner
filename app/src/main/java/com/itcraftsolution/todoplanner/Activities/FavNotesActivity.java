@@ -1,4 +1,4 @@
-package com.itcraftsolution.todoplanner;
+package com.itcraftsolution.todoplanner.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;

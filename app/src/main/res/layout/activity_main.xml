@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <TextView
         android:id="@+id/textView4"
@@ -31,16 +31,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
-    <androidx.appcompat.widget.SearchView
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edSearchNotes"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginHorizontal="@dimen/_12mdp"
         android:layout_marginTop="@dimen/_12mdp"
         android:background="@drawable/search_bg"
-        app:queryHint="Search Notes"
-        app:queryBackground="@null"
-        app:iconifiedByDefault="false"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        android:drawablePadding="@dimen/_10mdp"
+        android:paddingStart="@dimen/_12mdp"
+        android:textColor="@color/textColor"
+        android:hint="Search Notes"
+        android:textColorHint="@color/whiteDark"
         android:includeFontPadding="false"
         android:textSize="@dimen/_15font_mdp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,6 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/_4mdp"
+        android:layout_marginHorizontal="@dimen/_4mdp"
         android:transitionGroup="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,7 +88,7 @@
             android:textSize="@dimen/_15font_mdp"
             android:textColor="@color/black"
             android:fontFamily="@font/opensanssemibold"
-            android:text="Not found Any Notes..."
+            android:text="Not found Any Notes"
             />
     </LinearLayout>
 
@@ -125,7 +129,7 @@
             android:id="@+id/txFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/opensanssemibold"
+            android:fontFamily="@font/opensansbold"
             android:text="Add Notes"
             android:textColor="@color/white"
             android:paddingStart="0dp"
@@ -139,18 +143,22 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!-- <androidx.appcompat.widget.Toolbar
-        android:id="@+id/materialToolbar"
+<!--  <androidx.appcompat.widget.SearchView
+        android:id="@+id/edSearchNotes"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/whiteDark"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/Theme.AppCompat.Light"
-        app:title="@string/app_name"
+        android:layout_marginHorizontal="@dimen/_12mdp"
+        android:layout_marginTop="@dimen/_12mdp"
+        android:background="@drawable/search_bg"
+        app:queryHint="Search Notes"
+        app:queryBackground="@null"
+        app:iconifiedByDefault="false"
+        android:includeFontPadding="false"
+        android:textSize="@dimen/_15font_mdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 
 

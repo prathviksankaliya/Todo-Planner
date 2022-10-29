@@ -1,4 +1,4 @@
-package com.itcraftsolution.todoplanner;
+package com.itcraftsolution.todoplanner.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -8,26 +8,17 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.itcraftsolution.todoplanner.Adapters.RvAllNotesAdapter;
+import com.itcraftsolution.todoplanner.databinding.ActivityMainBinding;
 import com.itcraftsolution.todoplanner.model.Notes;
 import com.itcraftsolution.todoplanner.ViewModel.NotesViewModel;
-import com.itcraftsolution.todoplanner.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,18 +43,38 @@ public class MainActivity extends AppCompatActivity {
         binding.rvAllNotes.setAdapter(adapter);
 
         binding.edSearchNotes.clearFocus();
-        binding.edSearchNotes.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        binding.edSearchNotes.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                searchNotes(newText);
-                return true;
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(list.size() != 0)
+                {
+                    searchNotes(editable.toString());
+                }
             }
         });
+
+//        binding.edSearchNotes.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                searchNotes(newText);
+//                return true;
+//            }
+//        });
 
         binding.fabAddNotes.setOnClickListener(new View.OnClickListener() {
             @Override
