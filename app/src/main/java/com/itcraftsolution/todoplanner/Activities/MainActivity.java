@@ -41,9 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         fetchAllNotes();
         adapter = new RvAllNotesAdapter(this, list);
-        binding.rvAllNotes.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        binding.rvAllNotes.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         binding.rvAllNotes.setAdapter(adapter);
-
 
 
         binding.edSearchNotes.clearFocus();
@@ -60,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(list.size() != 0)
-                {
+                if (list.size() != 0) {
                     searchNotes(editable.toString());
                 }
             }
@@ -95,16 +93,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void fetchAllNotes()
-    {
+    private void fetchAllNotes() {
         notesViewModel.getAllNotes().observe(this, new Observer<List<Notes>>() {
             @Override
             public void onChanged(List<Notes> notes) {
-                if(notes.isEmpty())
-                {
+                if (notes.isEmpty()) {
                     binding.rvAllNotes.setVisibility(View.GONE);
                     binding.notFoundLayout.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     binding.rvAllNotes.setVisibility(View.VISIBLE);
                     binding.notFoundLayout.setVisibility(View.GONE);
                     list = notes;
@@ -121,22 +117,18 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    public void searchNotes(String searchKey)
-    {
+    public void searchNotes(String searchKey) {
         searchList = new ArrayList<>();
         searchKey = searchKey.toLowerCase().trim();
-        for(Notes notes : list)
-        {
-            if(notes.getNotesTitle().toLowerCase().trim().contains(searchKey) || notes.getNotes().toLowerCase().trim().contains(searchKey))
-            {
+        for (Notes notes : list) {
+            if (notes.getNotesTitle().toLowerCase().trim().contains(searchKey) || notes.getNotes().toLowerCase().trim().contains(searchKey)) {
                 searchList.add(notes);
             }
         }
-        if(searchList.isEmpty())
-        {
+        if (searchList.isEmpty()) {
             binding.notFoundLayout.setVisibility(View.VISIBLE);
             binding.rvAllNotes.setVisibility(View.GONE);
-        }else{
+        } else {
             adapter.updateNotesList(searchList);
             binding.rvAllNotes.setVisibility(View.VISIBLE);
             binding.notFoundLayout.setVisibility(View.GONE);

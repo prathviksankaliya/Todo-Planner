@@ -26,15 +26,27 @@
         android:layout_marginTop="@dimen/_6mdp"
         android:fontFamily="@font/opensansbold"
         android:gravity="center"
-        android:text="To-Do Planner"
+        android:text="@string/app_name"
         android:textColor="@color/black"
-        android:textSize="@dimen/_24font_mdp"
+        android:textSize="@dimen/_25font_mdp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Notes, Lists and Tasks"
+        android:fontFamily="@font/opensanssemibold"
+        android:textColor="@color/whiteDark"
+        android:textSize="@dimen/_12font_mdp"
+        android:layout_marginTop="@dimen/_3mdp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ProgressBar
         android:id="@+id/progressbar"
@@ -57,8 +69,8 @@
         android:fontFamily="@font/opensansbold"
         android:gravity="center"
         android:letterSpacing="0.1"
-        android:textColor="@color/whiteDark"
         android:text="By \n IT Craft Solution"
+        android:textColor="@color/whiteDark"
         android:textSize="@dimen/_13font_mdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

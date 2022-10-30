@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomSheetDelete"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/deletesheet_box"
-    android:padding="@dimen/_6mdp"
     android:backgroundTint="@color/default_note"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/bottomSheetDelete">
+    android:padding="@dimen/_6mdp">
 
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="@dimen/_85mdp"
-            android:layout_height="@dimen/_5mdp"
-            android:background="@drawable/delete_indicator_shape"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/_85mdp"
+        android:layout_height="@dimen/_5mdp"
+        android:background="@drawable/delete_indicator_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15mdp"
-            android:fontFamily="@font/opensanssemibold"
-            android:gravity="center"
-            android:text="Are you sure want to Delete \n this Notes?"
-            android:textColor="@color/textColor"
-            android:textSize="@dimen/_16font_mdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15mdp"
+        android:fontFamily="@font/opensanssemibold"
+        android:gravity="center"
+        android:text="Are you sure want to Delete \n this Notes?"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/_16font_mdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnCancle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_12mdp"
-            android:layout_marginTop="@dimen/_15mdp"
-            android:text="Cancel"
-            android:textColor="@color/textColor"
-            android:background="@drawable/deletebtn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCancle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12mdp"
+        android:layout_marginTop="@dimen/_15mdp"
+        android:background="@drawable/deletebtn"
+        android:text="Cancel"
+        android:textColor="@color/textColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnDelete"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_12mdp"
-            android:background="@drawable/deletebtn"
-            android:backgroundTint="@color/red"
-            android:text="Delete"
-            android:textColor="@color/textColor"
-            android:layout_marginBottom="@dimen/_12mdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/btnCancle"
-            app:layout_constraintStart_toStartOf="@+id/btnCancle"
-            app:layout_constraintTop_toBottomOf="@+id/btnCancle" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnDelete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12mdp"
+        android:layout_marginBottom="@dimen/_12mdp"
+        android:background="@drawable/deletebtn"
+        android:backgroundTint="@color/red"
+        android:text="Delete"
+        android:textColor="@color/textColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnCancle"
+        app:layout_constraintStart_toStartOf="@+id/btnCancle"
+        app:layout_constraintTop_toBottomOf="@+id/btnCancle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

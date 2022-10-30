@@ -27,7 +27,7 @@ public class Notes {
 //    @ColumnInfo(name = "imagePaths")
 //    private String image_path;
 
-    public Notes( String notesTitle, String notes, String notesDate, boolean pin, String color) {
+    public Notes(String notesTitle, String notes, String notesDate, boolean pin, String color) {
         this.notesTitle = notesTitle;
         this.notes = notes;
         this.notesDate = notesDate;

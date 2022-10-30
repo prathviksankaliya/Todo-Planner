@@ -11,19 +11,20 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:textColorHint">@color/textColor</item>
         <!-- Customize your theme here. -->
     </style>
 
     <style name="progressbar">
         <item name="colorSecondary">@color/whiteDark</item>
     </style>
-    
+
     <style name="BottomSheetStyle" parent="Theme.Design.Light.BottomSheetDialog">
-        <item name="bottomSheetStyle"> @style/Modal</item>
+        <item name="bottomSheetStyle">@style/Modal</item>
     </style>
-    
+
     <style name="Modal" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background" > @drawable/deletesheet_box</item>
+        <item name="android:background">@drawable/deletesheet_box</item>
     </style>
 
 </resources>

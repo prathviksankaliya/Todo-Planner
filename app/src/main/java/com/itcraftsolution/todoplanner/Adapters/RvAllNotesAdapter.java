@@ -32,7 +32,7 @@ import java.util.TimerTask;
 public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.viewHolder> {
 
     Context context;
-    List<Notes> list,allNotes;
+    List<Notes> list, allNotes;
     NotesViewModel notesViewModel;
     Timer timer;
 
@@ -44,10 +44,9 @@ public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.vi
 
     }
 
-    public void updateNotesList(List<Notes> notes)
-    {
-            list = notes;
-            notifyDataSetChanged();
+    public void updateNotesList(List<Notes> notes) {
+        list = notes;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -95,8 +94,7 @@ public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.vi
                 igShare = menuSheetView.findViewById(R.id.btnShare);
 
                 boolean getFav = notesViewModel.getFavNotes(notes.getId());
-                if(getFav)
-                {
+                if (getFav) {
                     igFav.setImageResource(R.drawable.fillstar64);
                 }
 
@@ -133,7 +131,7 @@ public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.vi
                                 list.remove(holder.getAdapterPosition());
                                 notifyDataSetChanged();
                                 bottomSheetDialog.dismiss();
-                            Snackbar.make(holder.binding.cardviewLayout, "Deleted Successfully!!", Snackbar.LENGTH_SHORT)
+                                Snackbar.make(holder.binding.cardviewLayout, "Deleted Successfully!!", Snackbar.LENGTH_SHORT)
                                         .setBackgroundTint(context.getResources().getColor(R.color.red))
                                         .setTextColor(context.getResources().getColor(R.color.white))
                                         .show();
@@ -152,15 +150,14 @@ public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.vi
                 igFav.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(getFav)
-                        {
+                        if (getFav) {
                             igFav.setImageResource(R.drawable.emptystar64);
                             notesViewModel.favNotes(notes.getId(), false);
                             Snackbar.make(holder.binding.cardviewLayout, "Removed From Favourite", Snackbar.LENGTH_SHORT)
                                     .setBackgroundTint(context.getResources().getColor(R.color.red))
                                     .setTextColor(context.getResources().getColor(R.color.white))
                                     .show();
-                        }else{
+                        } else {
                             notesViewModel.favNotes(notes.getId(), true);
                             Snackbar.make(holder.binding.cardviewLayout, "Added into Favourite", Snackbar.LENGTH_SHORT)
                                     .setBackgroundTint(context.getResources().getColor(R.color.noteColor8))
@@ -175,12 +172,12 @@ public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.vi
                 igShare.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                    Intent intent = new Intent(Intent.ACTION_SEND);
-                    intent.setType("text/plain");
-                    intent.putExtra(Intent.EXTRA_SUBJECT, notes.getNotesTitle());
-                    intent.putExtra(Intent.EXTRA_TEXT, notes.getNotes());
-                    context.startActivity(Intent.createChooser(intent, "Share Notes!!"));
-                    menuBottomSheetDialog.dismiss();
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("text/plain");
+                        intent.putExtra(Intent.EXTRA_SUBJECT, notes.getNotesTitle());
+                        intent.putExtra(Intent.EXTRA_TEXT, notes.getNotes());
+                        context.startActivity(Intent.createChooser(intent, "Share Notes!!"));
+                        menuBottomSheetDialog.dismiss();
                     }
                 });
 
@@ -194,8 +191,7 @@ public class RvAllNotesAdapter extends RecyclerView.Adapter<RvAllNotesAdapter.vi
         return list.size();
     }
 
-    public static class viewHolder extends RecyclerView.ViewHolder
-    {
+    public static class viewHolder extends RecyclerView.ViewHolder {
         RvSampleNotesBinding binding;
 
         public viewHolder(@NonNull View itemView) {

@@ -7,42 +7,61 @@
     android:layout_height="match_parent"
     tools:context=".Activities.AddNotesActivity">
 
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:clipToPadding="false"-->
-<!--        android:paddingBottom="@dimen/_10mdp">-->
+    <!--    <ScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:clipToPadding="false"-->
+    <!--        android:paddingBottom="@dimen/_10mdp">-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+
+        <ImageView
+            android:id="@+id/igBackToHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_6mdp"
+            android:layout_marginTop="@dimen/_6mdp"
+            android:layout_weight="1"
+            android:padding="@dimen/_5mdp"
+            android:src="@drawable/ic_baseline_keyboard_backspace_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:background="@drawable/date_rounded"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_6mdp"
+            android:paddingEnd="@dimen/_6mdp"
+            app:layout_constraintBottom_toBottomOf="@+id/igBackToHome"
+            app:layout_constraintEnd_toStartOf="@+id/btnAddNoteSave"
+            app:layout_constraintStart_toEndOf="@+id/igBackToHome"
+            app:layout_constraintTop_toTopOf="@+id/igBackToHome">
 
             <ImageView
-                android:id="@+id/igBackToHome"
+                android:id="@+id/igDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_6mdp"
-                android:layout_marginTop="@dimen/_6mdp"
-                android:layout_weight="1"
-                android:padding="@dimen/_5mdp"
-                android:src="@drawable/ic_baseline_keyboard_backspace_24"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:src="@drawable/ic_baseline_date_range_24"
+                app:layout_constraintBottom_toBottomOf="@+id/txEditDate"
+                app:layout_constraintEnd_toStartOf="@+id/txEditDate"
+                app:layout_constraintStart_toStartOf="@+id/txEditDate"
+                app:layout_constraintTop_toTopOf="@+id/txEditDate" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/txEditDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5mdp"
-                android:layout_weight="3"
-                android:background="@drawable/date_rounded"
-                android:drawableStart="@drawable/ic_baseline_date_range_24"
-                android:drawablePadding="@dimen/_5mdp"
                 android:ellipsize="end"
                 android:fontFamily="@font/opensanssemibold"
                 android:gravity="center"
-                android:padding="@dimen/_6mdp"
                 android:text="oct 24, 2022"
                 android:textAlignment="center"
                 android:textSize="@dimen/_12font_mdp"
@@ -51,47 +70,58 @@
                 app:layout_constraintStart_toEndOf="@+id/igBackToHome"
                 app:layout_constraintTop_toTopOf="@+id/igBackToHome" />
 
-            <TextView
-                android:id="@+id/btnAddNoteSave"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_6mdp"
-                android:layout_weight="1"
-                android:fontFamily="@font/opensansbold"
-                android:gravity="end"
-                android:padding="@dimen/_6mdp"
-                android:text="Save"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_15font_mdp"
-                app:layout_constraintBottom_toBottomOf="@+id/txEditDate"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/txEditDate" />
+        </LinearLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <TextView
+            android:id="@+id/btnAddNoteSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_6mdp"
+            android:layout_weight="1"
+            android:fontFamily="@font/opensansbold"
+            android:gravity="end"
+            android:padding="@dimen/_6mdp"
+            android:text="Save"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15font_mdp"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:layout_marginTop="@dimen/_6mdp"
+            app:boxStrokeWidth="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_6mdp"
+                android:background="#00000000"
+                android:fontFamily="@font/opensansbold"
+                android:hint="Title"
                 android:maxLines="2"
-                app:boxStrokeWidth="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txEditDate">
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/textColor"
+                android:textSize="@dimen/_18font_mdp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/opensansbold"
-                    android:background="#00000000"
-                    android:hint="Title"
-                    android:textColorHint="@color/textColor"
-                    android:textColor="@color/textColor"
-                    android:maxLines="2"
-                    android:textSize="@dimen/_18font_mdp"
-                    android:textStyle="bold" />
-            </com.google.android.material.textfield.TextInputLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout2"
@@ -107,48 +137,23 @@
                     android:id="@+id/edNotes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:focusable="true"
-                    android:textColor="@color/textColor"
-                    android:textColorHint="@color/textColor"
                     android:background="#00000000"
+                    android:focusable="true"
                     android:focusedByDefault="true"
                     android:fontFamily="@font/opensanssemibold"
                     android:hint="Note"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/textColor"
                     android:textSize="@dimen/_14font_mdp" />
             </com.google.android.material.textfield.TextInputLayout>
+        </ScrollView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--    </ScrollView>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    </ScrollView>-->
 
     <include
         android:id="@+id/bottomSheetColor"
-        layout="@layout/note_choose_color"
-        />
+        layout="@layout/note_choose_color" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-<!--<androidx.appcompat.widget.Toolbar
-        android:id="@+id/tlAddNotes"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/whiteDark"
-        app:titleTextColor="@color/white"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/Theme.AppCompat.Light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="Add Note" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_6mdp"
-            android:layout_weight="1"
-            android:fontFamily="@font/opensansbold"
-            android:gravity="center"
-            android:text="Add Notes"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_19font_mdp" />-->

@@ -1,26 +1,22 @@
 package com.itcraftsolution.todoplanner.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.content.res.AppCompatResources;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.snackbar.Snackbar;
 import com.itcraftsolution.todoplanner.R;
-import com.itcraftsolution.todoplanner.model.Notes;
 import com.itcraftsolution.todoplanner.ViewModel.NotesViewModel;
 import com.itcraftsolution.todoplanner.databinding.ActivityAddNotesBinding;
+import com.itcraftsolution.todoplanner.model.Notes;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -57,28 +53,25 @@ public class AddNotesActivity extends AppCompatActivity {
         binding.btnAddNoteSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(binding.edTitle.getText().toString().isEmpty())
-                {
+                if (binding.edTitle.getText().toString().isEmpty()) {
                     Snackbar.make(binding.mainLayout, "Please Set Notes Title!!", Snackbar.LENGTH_SHORT)
                             .setBackgroundTint(getResources().getColor(R.color.red))
                             .setTextColor(getResources().getColor(R.color.white))
                             .show();
                     binding.edTitle.requestFocus();
-                }else if(binding.edNotes.getText().toString().isEmpty()) {
+                } else if (binding.edNotes.getText().toString().isEmpty()) {
                     Snackbar.make(binding.mainLayout, "Please Set Notes Text!!", Snackbar.LENGTH_SHORT)
                             .setBackgroundTint(getResources().getColor(R.color.red))
                             .setTextColor(getResources().getColor(R.color.white))
                             .show();
                     binding.edNotes.requestFocus();
-                }else {
-                    Notes notes = new Notes(binding.edTitle.getText().toString().trim(), binding.edNotes.getText().toString().trim(),date, pin, selectedNoteColor);
-                    if(binding.btnAddNoteSave.getText().toString().equals("Save"))
-                    {
+                } else {
+                    Notes notes = new Notes(binding.edTitle.getText().toString().trim(), binding.edNotes.getText().toString().trim(), date, pin, selectedNoteColor);
+                    if (binding.btnAddNoteSave.getText().toString().equals("Save")) {
                         notesViewModel.addNotes(notes);
                         Toast.makeText(AddNotesActivity.this, "Notes Saved!!", Toast.LENGTH_SHORT).show();
-                    }else if(binding.btnAddNoteSave.getText().toString().equals("Update"))
-                    {
-                        Notes updateNotes = new Notes(id,binding.edTitle.getText().toString().trim(), binding.edNotes.getText().toString().trim(),date, pin, selectedNoteColor);
+                    } else if (binding.btnAddNoteSave.getText().toString().equals("Update")) {
+                        Notes updateNotes = new Notes(id, binding.edTitle.getText().toString().trim(), binding.edNotes.getText().toString().trim(), date, pin, selectedNoteColor);
                         notesViewModel.updateNotes(updateNotes);
                         Toast.makeText(AddNotesActivity.this, "Notes Updated!!", Toast.LENGTH_SHORT).show();
                     }
@@ -88,14 +81,12 @@ public class AddNotesActivity extends AppCompatActivity {
         });
     }
 
-    private void updateNotes()
-    {
-        if(getIntent().getBooleanExtra("update", false))
-        {
+    private void updateNotes() {
+        if (getIntent().getBooleanExtra("update", false)) {
 
-            String notes,title;
+            String notes, title;
             notes = getIntent().getStringExtra("notes");
-            id = getIntent().getIntExtra("id",0);
+            id = getIntent().getIntExtra("id", 0);
             title = getIntent().getStringExtra("title");
             pin = getIntent().getBooleanExtra("pin", false);
 
@@ -105,7 +96,7 @@ public class AddNotesActivity extends AppCompatActivity {
             binding.btnAddNoteSave.setText("Update");
             getColorIdUsingColorName(selectedNoteColor);
 
-        }else{
+        } else {
             binding.edNotes.requestFocus();
         }
     }
@@ -124,16 +115,14 @@ public class AddNotesActivity extends AppCompatActivity {
 
     }
 
-    private void chooseColor()
-    {
+    private void chooseColor() {
         BottomSheetBehavior<ConstraintLayout> bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetColor.bottomsheet);
         binding.bottomSheetColor.bottomsheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED)
-                {
+                if (bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-                }else{
+                } else {
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                 }
             }
@@ -148,25 +137,25 @@ public class AddNotesActivity extends AppCompatActivity {
         binding.bottomSheetColor.viewColor2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               setViewBackground("#c5cae9", R.drawable.ic_baseline_block_24, R.drawable.ic_baseline_check_24, 0, 0, 0, 0, 0);
+                setViewBackground("#c5cae9", R.drawable.ic_baseline_block_24, R.drawable.ic_baseline_check_24, 0, 0, 0, 0, 0);
             }
         });
         binding.bottomSheetColor.viewColor3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               setViewBackground("#ffcdd2", R.drawable.ic_baseline_block_24, 0, R.drawable.ic_baseline_check_24, 0, 0, 0, 0);
+                setViewBackground("#ffcdd2", R.drawable.ic_baseline_block_24, 0, R.drawable.ic_baseline_check_24, 0, 0, 0, 0);
             }
         });
         binding.bottomSheetColor.viewColor4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               setViewBackground("#e1bee7", R.drawable.ic_baseline_block_24, 0, 0, R.drawable.ic_baseline_check_24, 0, 0, 0);
+                setViewBackground("#e1bee7", R.drawable.ic_baseline_block_24, 0, 0, R.drawable.ic_baseline_check_24, 0, 0, 0);
             }
         });
         binding.bottomSheetColor.viewColor5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               setViewBackground("#bbdefb", R.drawable.ic_baseline_block_24, 0, 0, 0, R.drawable.ic_baseline_check_24, 0, 0);
+                setViewBackground("#bbdefb", R.drawable.ic_baseline_block_24, 0, 0, 0, R.drawable.ic_baseline_check_24, 0, 0);
             }
         });
         binding.bottomSheetColor.viewColor6.setOnClickListener(new View.OnClickListener() {
@@ -183,8 +172,8 @@ public class AddNotesActivity extends AppCompatActivity {
         });
 
     }
-    private void setViewBackground(String color, int igColor1, int igColor2, int igColor3,int igColor4,int igColor5,int igColor6, int igColor7)
-    {
+
+    private void setViewBackground(String color, int igColor1, int igColor2, int igColor3, int igColor4, int igColor5, int igColor6, int igColor7) {
         selectedNoteColor = color;
         binding.bottomSheetColor.igNone.setImageResource(igColor1);
         binding.bottomSheetColor.igColor2.setImageResource(igColor2);
@@ -195,78 +184,53 @@ public class AddNotesActivity extends AppCompatActivity {
         binding.bottomSheetColor.igColor7.setImageResource(igColor7);
         setNoteBackground();
     }
-    private void getColorIdUsingColorName(String colorName)
-    {
-        if(colorName.equals("#c5cae9"))
-        {
+
+    private void getColorIdUsingColorName(String colorName) {
+        if (colorName.equals("#c5cae9")) {
             setViewBackground(colorName, R.drawable.ic_baseline_block_24, R.drawable.ic_baseline_check_24, 0, 0, 0, 0, 0);
-        }else if(colorName.equals("#ffcdd2"))
-        {
+        } else if (colorName.equals("#ffcdd2")) {
             setViewBackground(colorName, R.drawable.ic_baseline_block_24, 0, R.drawable.ic_baseline_check_24, 0, 0, 0, 0);
-        }else if(colorName.equals("#e1bee7"))
-        {
+        } else if (colorName.equals("#e1bee7")) {
             setViewBackground(colorName, R.drawable.ic_baseline_block_24, 0, 0, R.drawable.ic_baseline_check_24, 0, 0, 0);
 
-        }else if(colorName.equals("#bbdefb"))
-        {
+        } else if (colorName.equals("#bbdefb")) {
             setViewBackground(colorName, R.drawable.ic_baseline_block_24, 0, 0, 0, R.drawable.ic_baseline_check_24, 0, 0);
 
-        }else if(colorName.equals("#c8e6c9"))
-        {
+        } else if (colorName.equals("#c8e6c9")) {
             setViewBackground(colorName, R.drawable.ic_baseline_block_24, 0, 0, 0, 0, R.drawable.ic_baseline_check_24, 0);
 
-        }else if(colorName.equals("#cfd8dc"))
-        {
+        } else if (colorName.equals("#cfd8dc")) {
             setViewBackground(colorName, R.drawable.ic_baseline_block_24, 0, 0, 0, 0, 0, R.drawable.ic_baseline_check_24);
-        }else if(colorName.equals("#f5f5f5")){
+        } else if (colorName.equals("#f5f5f5")) {
             setViewBackground("#00000000", R.drawable.ic_baseline_block_24, 0, 0, 0, 0, 0, 0);
         }
     }
 
-    private void setNoteBackground()
-    {
+    private void setNoteBackground() {
         binding.mainLayout.setBackgroundColor(Color.parseColor(selectedNoteColor));
         binding.edTitle.setBackgroundColor(Color.parseColor(selectedNoteColor));
         binding.edNotes.setBackgroundColor(Color.parseColor(selectedNoteColor));
-        if(selectedNoteColor.equals("#00000000"))
-        {
+        if (selectedNoteColor.equals("#00000000")) {
             selectedNoteColor = "#f5f5f5";
-//
-            Toast.makeText(this, "color chages", Toast.LENGTH_SHORT).show();
-            binding.edNotes.setTextColor(getResources().getColor(R.color.default_note));
-            binding.edTitle.setTextColor(getResources().getColor(R.color.default_note));
-            binding.txEditDate.setTextColor(getResources().getColor(R.color.default_note));
-            binding.btnAddNoteSave.setTextColor(getResources().getColor(R.color.default_note));
-        }else {
-            binding.edNotes.setTextColor(getResources().getColor(R.color.white));
-            binding.edTitle.setTextColor(getResources().getColor(R.color.white));
-            binding.txEditDate.setTextColor(getResources().getColor(R.color.white));
-            binding.edTitle.setHintTextColor(getResources().getColor(R.color.white));
-            binding.edNotes.setHintTextColor(getResources().getColor(R.color.white));
-            binding.btnAddNoteSave.setTextColor(getResources().getColor(R.color.white));
+            int nightModeFalgs = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+            if (nightModeFalgs == Configuration.UI_MODE_NIGHT_YES) {
+                binding.edNotes.setTextColor(getResources().getColor(R.color.black));
+                binding.edTitle.setTextColor(getResources().getColor(R.color.black));
+                binding.igBackToHome.setImageResource(R.drawable.ic_baseline_keyboard_backspace_24);
+                binding.igDate.setImageResource(R.drawable.ic_baseline_date_range_24);
+                binding.txEditDate.setTextColor(getResources().getColor(R.color.black));
+                binding.btnAddNoteSave.setTextColor(getResources().getColor(R.color.black));
+            }
 
+        } else {
+            binding.edTitle.setTextColor(getResources().getColor(R.color.textColor));
+            binding.edNotes.setTextColor(getResources().getColor(R.color.textColor));
+            binding.edNotes.setHintTextColor(getResources().getColor(R.color.textColor));
+            binding.edTitle.setHintTextColor(getResources().getColor(R.color.textColor));
+            binding.igBackToHome.setImageResource(R.drawable.ic_baseline_keyboard_backspace2_24);
+            binding.igDate.setImageResource(R.drawable.ic_baseline_date2_range_24);
+            binding.txEditDate.setTextColor(getResources().getColor(R.color.textColor));
+            binding.btnAddNoteSave.setTextColor(getResources().getColor(R.color.textColor));
         }
-        int nightModeFalgs = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        switch (nightModeFalgs)
-        {
-            case Configuration.UI_MODE_NIGHT_YES:
-                Toast.makeText(this, "Night Mode!!", Toast.LENGTH_SHORT).show();
-                Drawable unwrappedBackDrawable = AppCompatResources.getDrawable(this, R.drawable.ic_baseline_keyboard_backspace_24);
-                Drawable unwrappedDateDrawable = AppCompatResources.getDrawable(this, R.drawable.ic_baseline_date_range_24);
-                Drawable wrappedBackDrawable = DrawableCompat.wrap(unwrappedBackDrawable);
-                Drawable wrappedDateDrawable = DrawableCompat.wrap(unwrappedDateDrawable);
-                DrawableCompat.setTint(wrappedBackDrawable, Color.BLACK);
-                DrawableCompat.setTint(wrappedDateDrawable, Color.BLACK);
-                break;
-
-            case Configuration.UI_MODE_NIGHT_NO:
-                Toast.makeText(this, "Light Mode!!", Toast.LENGTH_SHORT).show();
-                break;
-
-            case Configuration.UI_MODE_NIGHT_UNDEFINED:
-                Toast.makeText(this, "Undefined Mode!!", Toast.LENGTH_SHORT).show();
-                break;
-        }
-
     }
 }

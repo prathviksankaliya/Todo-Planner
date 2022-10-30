@@ -13,17 +13,9 @@
     <color name="whiteDark">#9e9e9e</color>
     <color name="whiteDark2">#B29E9E9E</color>
     <color name="red">#ff1744</color>
-    <color name="yellow">#d4e157</color>
 
     <!--color palette-->
-
-    <color name="yellowOrange">#F8961E</color>
     <color name="searchBg">#EAEFF3</color>
-    <color name="maizeCrayola">#F9C74F</color>
-    <color name="card_yellow">#FFCC00</color>
-    <color name="card_red">#FF3B30</color>
-    <color name="card_violet">#FF9500</color>
-    <color name="card_blue">#5AC8FA</color>
     <color name="color_misc">#1F1F1F</color>
     <color name="textColor">@color/black</color>
 
@@ -36,5 +28,4 @@
     <color name="noteColor6">#cfd8dc</color>
     <color name="noteColor7">#ffccbc</color>
     <color name="noteColor8">#34C759</color>
-    <color name="noteColor9">#E9018786</color>
 </resources>

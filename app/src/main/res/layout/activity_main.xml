@@ -24,9 +24,9 @@
         android:id="@+id/btnHomeFav"
         android:layout_width="@dimen/_32mdp"
         android:layout_height="@dimen/_30mdp"
+        android:layout_marginEnd="@dimen/_12mdp"
         android:layout_marginBottom="7dp"
         android:src="@drawable/favnotes641"
-        android:layout_marginEnd="@dimen/_12mdp"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
@@ -40,11 +40,11 @@
         android:background="@drawable/search_bg"
         android:drawableStart="@drawable/ic_baseline_search_24"
         android:drawablePadding="@dimen/_10mdp"
+        android:hint="Search Notes"
+        android:includeFontPadding="false"
         android:paddingStart="@dimen/_12mdp"
         android:textColor="@color/textColor"
-        android:hint="Search Notes"
         android:textColorHint="@color/whiteDark"
-        android:includeFontPadding="false"
         android:textSize="@dimen/_15font_mdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -55,8 +55,8 @@
         android:id="@+id/rvAllNotes"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_4mdp"
         android:layout_marginHorizontal="@dimen/_4mdp"
+        android:layout_marginTop="@dimen/_4mdp"
         android:transitionGroup="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,8 +68,8 @@
         android:id="@+id/notFoundLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,15 +81,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/file" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_6mdp"
-            android:textSize="@dimen/_15font_mdp"
-            android:textColor="@color/black"
             android:fontFamily="@font/opensanssemibold"
             android:text="Not found Any Notes"
-            />
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15font_mdp" />
     </LinearLayout>
 
     <LinearLayout
@@ -113,53 +113,51 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:backgroundTint="@color/black"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_baseline_add_24"
             app:borderWidth="0dp"
-            android:backgroundTint="@color/black"
             app:elevation="0dp"
-            app:tint="@color/white"
             app:fabSize="normal"
-            app:useCompatPadding="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:maxImageSize="@dimen/_25mdp" />
+            app:maxImageSize="@dimen/_25mdp"
+            app:tint="@color/white"
+            app:useCompatPadding="false" />
 
         <TextView
             android:id="@+id/txFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:fontFamily="@font/opensansbold"
-            android:text="Add Notes"
-            android:textColor="@color/white"
             android:paddingStart="0dp"
             android:paddingEnd="@dimen/_18mdp"
+            android:text="Add Notes"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-            android:layout_gravity="center_vertical"
-            />
+            android:textColor="@color/white" />
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--  <androidx.appcompat.widget.SearchView
-        android:id="@+id/edSearchNotes"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_marginHorizontal="@dimen/_12mdp"
-        android:layout_marginTop="@dimen/_12mdp"
-        android:background="@drawable/search_bg"
-        app:queryHint="Search Notes"
-        app:queryBackground="@null"
-        app:iconifiedByDefault="false"
-        android:includeFontPadding="false"
-        android:textSize="@dimen/_15font_mdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+    <!--  <androidx.appcompat.widget.SearchView
+            android:id="@+id/edSearchNotes"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginHorizontal="@dimen/_12mdp"
+            android:layout_marginTop="@dimen/_12mdp"
+            android:background="@drawable/search_bg"
+            app:queryHint="Search Notes"
+            app:queryBackground="@null"
+            app:iconifiedByDefault="false"
+            android:includeFontPadding="false"
+            android:textSize="@dimen/_15font_mdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 
 
-         -->
+             -->

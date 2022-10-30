@@ -47,16 +47,14 @@ public class FavNotesActivity extends AppCompatActivity {
         binding.rvFavNotes.setAdapter(adapter);
     }
 
-    private void getAllFavNotes()
-    {
+    private void getAllFavNotes() {
         notesViewModel.getAllFavNotes().observe(this, new Observer<List<Notes>>() {
             @Override
             public void onChanged(List<Notes> notes) {
-                if(notes.isEmpty())
-                {
+                if (notes.isEmpty()) {
                     binding.notFoundLayout.setVisibility(View.VISIBLE);
                     binding.rvFavNotes.setVisibility(View.GONE);
-                }else{
+                } else {
                     binding.notFoundLayout.setVisibility(View.GONE);
                     binding.rvFavNotes.setVisibility(View.VISIBLE);
                     favNotes = notes;
@@ -65,6 +63,7 @@ public class FavNotesActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

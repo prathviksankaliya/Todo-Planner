@@ -12,13 +12,12 @@ import com.itcraftsolution.todoplanner.model.Notes;
 public abstract class DatabaseHelper extends RoomDatabase {
     private static DatabaseHelper instance;
     private static String dbName = "NotesDatabase";
+
     public abstract DatabaseInterface databaseInterface();
 
 
-    public static synchronized DatabaseHelper databaseHelper(Context context)
-    {
-        if(instance == null)
-        {
+    public static synchronized DatabaseHelper databaseHelper(Context context) {
+        if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(), DatabaseHelper.class, dbName)
                     .fallbackToDestructiveMigration()
                     .allowMainThreadQueries()

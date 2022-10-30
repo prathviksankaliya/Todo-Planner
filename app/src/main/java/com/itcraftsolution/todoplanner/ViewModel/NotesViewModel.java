@@ -19,36 +19,31 @@ public class NotesViewModel extends AndroidViewModel {
         notesRepository = new NotesRepository(application);
     }
 
-    public LiveData<List<Notes>> getAllNotes()
-    {
+    public LiveData<List<Notes>> getAllNotes() {
         return notesRepository.getAllNotes();
     }
-    public LiveData<List<Notes>> getAllFavNotes()
-    {
+
+    public LiveData<List<Notes>> getAllFavNotes() {
         return notesRepository.getAllFavNotes();
     }
-    public boolean getFavNotes(int id)
-    {
+
+    public boolean getFavNotes(int id) {
         return notesRepository.getFavNotes(id);
     }
 
-    public void addNotes(Notes notes)
-    {
-         notesRepository.addNotes(notes);
+    public void addNotes(Notes notes) {
+        notesRepository.addNotes(notes);
     }
 
-    public void deleteNotes(int id)
-    {
+    public void deleteNotes(int id) {
         notesRepository.deleteNotes(id);
     }
 
-    public void updateNotes(Notes notes)
-    {
+    public void updateNotes(Notes notes) {
         notesRepository.updateNotes(notes);
     }
 
-    public void favNotes(int id, boolean pin)
-    {
+    public void favNotes(int id, boolean pin) {
         notesRepository.favNotes(id, pin);
     }
 }
