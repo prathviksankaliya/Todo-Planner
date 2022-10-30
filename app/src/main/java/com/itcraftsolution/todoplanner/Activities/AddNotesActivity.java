@@ -2,10 +2,14 @@ package com.itcraftsolution.todoplanner.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -174,7 +178,7 @@ public class AddNotesActivity extends AppCompatActivity {
         binding.bottomSheetColor.viewColor7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setViewBackground("#ffecb3", R.drawable.ic_baseline_block_24, 0, 0, 0, 0, 0, R.drawable.ic_baseline_check_24);
+                setViewBackground("#cfd8dc", R.drawable.ic_baseline_block_24, 0, 0, 0, 0, 0, R.drawable.ic_baseline_check_24);
             }
         });
 
@@ -211,7 +215,7 @@ public class AddNotesActivity extends AppCompatActivity {
         {
             setViewBackground(colorName, R.drawable.ic_baseline_block_24, 0, 0, 0, 0, R.drawable.ic_baseline_check_24, 0);
 
-        }else if(colorName.equals("#ffecb3"))
+        }else if(colorName.equals("#cfd8dc"))
         {
             setViewBackground(colorName, R.drawable.ic_baseline_block_24, 0, 0, 0, 0, 0, R.drawable.ic_baseline_check_24);
         }else if(colorName.equals("#f5f5f5")){
@@ -228,18 +232,40 @@ public class AddNotesActivity extends AppCompatActivity {
         {
             selectedNoteColor = "#f5f5f5";
 //
-//            Toast.makeText(this, "color chages", Toast.LENGTH_SHORT).show();
-//            binding.edNotes.setTextColor(getResources().getColor(R.color.default_note));
-//            binding.edTitle.setTextColor(getResources().getColor(R.color.default_note));
-//            binding.txEditDate.setTextColor(getResources().getColor(R.color.default_note));
-//            binding.btnAddNoteSave.setTextColor(getResources().getColor(R.color.default_note));
+            Toast.makeText(this, "color chages", Toast.LENGTH_SHORT).show();
+            binding.edNotes.setTextColor(getResources().getColor(R.color.default_note));
+            binding.edTitle.setTextColor(getResources().getColor(R.color.default_note));
+            binding.txEditDate.setTextColor(getResources().getColor(R.color.default_note));
+            binding.btnAddNoteSave.setTextColor(getResources().getColor(R.color.default_note));
         }else {
-//            binding.edNotes.setTextColor(getResources().getColor(R.color.white));
-//            binding.edTitle.setTextColor(getResources().getColor(R.color.white));
-//            binding.txEditDate.setTextColor(getResources().getColor(R.color.white));
-//            binding.edTitle.setHintTextColor(getResources().getColor(R.color.white));
-//            binding.edNotes.setHintTextColor(getResources().getColor(R.color.white));
-//            binding.btnAddNoteSave.setTextColor(getResources().getColor(R.color.white));
+            binding.edNotes.setTextColor(getResources().getColor(R.color.white));
+            binding.edTitle.setTextColor(getResources().getColor(R.color.white));
+            binding.txEditDate.setTextColor(getResources().getColor(R.color.white));
+            binding.edTitle.setHintTextColor(getResources().getColor(R.color.white));
+            binding.edNotes.setHintTextColor(getResources().getColor(R.color.white));
+            binding.btnAddNoteSave.setTextColor(getResources().getColor(R.color.white));
+
+        }
+        int nightModeFalgs = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        switch (nightModeFalgs)
+        {
+            case Configuration.UI_MODE_NIGHT_YES:
+                Toast.makeText(this, "Night Mode!!", Toast.LENGTH_SHORT).show();
+                Drawable unwrappedBackDrawable = AppCompatResources.getDrawable(this, R.drawable.ic_baseline_keyboard_backspace_24);
+                Drawable unwrappedDateDrawable = AppCompatResources.getDrawable(this, R.drawable.ic_baseline_date_range_24);
+                Drawable wrappedBackDrawable = DrawableCompat.wrap(unwrappedBackDrawable);
+                Drawable wrappedDateDrawable = DrawableCompat.wrap(unwrappedDateDrawable);
+                DrawableCompat.setTint(wrappedBackDrawable, Color.BLACK);
+                DrawableCompat.setTint(wrappedDateDrawable, Color.BLACK);
+                break;
+
+            case Configuration.UI_MODE_NIGHT_NO:
+                Toast.makeText(this, "Light Mode!!", Toast.LENGTH_SHORT).show();
+                break;
+
+            case Configuration.UI_MODE_NIGHT_UNDEFINED:
+                Toast.makeText(this, "Undefined Mode!!", Toast.LENGTH_SHORT).show();
+                break;
         }
 
     }

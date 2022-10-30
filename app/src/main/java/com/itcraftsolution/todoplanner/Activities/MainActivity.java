@@ -7,10 +7,12 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Toast;
 
 import com.itcraftsolution.todoplanner.Adapters.RvAllNotesAdapter;
 import com.itcraftsolution.todoplanner.databinding.ActivityMainBinding;
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         adapter = new RvAllNotesAdapter(this, list);
         binding.rvAllNotes.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         binding.rvAllNotes.setAdapter(adapter);
+
+
 
         binding.edSearchNotes.clearFocus();
         binding.edSearchNotes.addTextChangedListener(new TextWatcher() {
