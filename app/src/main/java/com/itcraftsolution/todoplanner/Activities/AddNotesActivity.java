@@ -223,14 +223,14 @@ public class AddNotesActivity extends AppCompatActivity {
             }
 
         } else {
-            binding.edTitle.setTextColor(getResources().getColor(R.color.textColor));
-            binding.edNotes.setTextColor(getResources().getColor(R.color.textColor));
-            binding.edNotes.setHintTextColor(getResources().getColor(R.color.textColor));
-            binding.edTitle.setHintTextColor(getResources().getColor(R.color.textColor));
-            binding.igBackToHome.setImageResource(R.drawable.ic_baseline_keyboard_backspace2_24);
-            binding.igDate.setImageResource(R.drawable.ic_baseline_date2_range_24);
-            binding.txEditDate.setTextColor(getResources().getColor(R.color.textColor));
-            binding.btnAddNoteSave.setTextColor(getResources().getColor(R.color.textColor));
+                binding.edTitle.setTextColor(getResources().getColor(R.color.textColor));
+                binding.edNotes.setTextColor(getResources().getColor(R.color.textColor));
+                binding.edNotes.setHintTextColor(getResources().getColor(R.color.textColor));
+                binding.edTitle.setHintTextColor(getResources().getColor(R.color.textColor));
+                binding.igBackToHome.setImageResource(R.drawable.ic_baseline_keyboard_backspace2_24);
+                binding.igDate.setImageResource(R.drawable.ic_baseline_date2_range_24);
+                binding.txEditDate.setTextColor(getResources().getColor(R.color.textColor));
+                binding.btnAddNoteSave.setTextColor(getResources().getColor(R.color.textColor));
         }
     }
 }

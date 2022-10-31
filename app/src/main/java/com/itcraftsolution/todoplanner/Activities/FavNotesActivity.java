@@ -1,13 +1,12 @@
 package com.itcraftsolution.todoplanner.Activities;
 
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-
-import android.os.Bundle;
-import android.view.View;
 
 import com.itcraftsolution.todoplanner.Adapters.RvAllNotesAdapter;
 import com.itcraftsolution.todoplanner.ViewModel.NotesViewModel;

@@ -1,23 +1,20 @@
 package com.itcraftsolution.todoplanner.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.itcraftsolution.todoplanner.Adapters.RvAllNotesAdapter;
+import com.itcraftsolution.todoplanner.ViewModel.NotesViewModel;
 import com.itcraftsolution.todoplanner.databinding.ActivityMainBinding;
 import com.itcraftsolution.todoplanner.model.Notes;
-import com.itcraftsolution.todoplanner.ViewModel.NotesViewModel;
 
 import java.util.ArrayList;
 import java.util.List;

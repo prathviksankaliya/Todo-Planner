@@ -108,7 +108,7 @@
                 android:fontFamily="@font/opensansbold"
                 android:hint="Title"
                 android:maxLines="2"
-                android:textColor="@color/textColor"
+                android:textColor="@color/black"
                 android:textColorHint="@color/textColor"
                 android:textSize="@dimen/_18font_mdp"
                 android:textStyle="bold" />
@@ -142,7 +142,7 @@
                     android:focusedByDefault="true"
                     android:fontFamily="@font/opensanssemibold"
                     android:hint="Note"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/textColor"
                     android:textSize="@dimen/_14font_mdp" />
             </com.google.android.material.textfield.TextInputLayout>
